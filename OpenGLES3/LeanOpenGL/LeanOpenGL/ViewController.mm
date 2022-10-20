@@ -19,6 +19,7 @@
 @implementation ViewController
 
 - (void)dealloc {
+    delete _render;
     [self tearDownGL];
     [self clearContext];
 }
@@ -40,6 +41,9 @@
 /// 配置OpenGL 环境
 - (void)setupGL {
     [EAGLContext setCurrentContext:self.context];
+    NSString *vPath = [[NSBundle mainBundle] pathForResource:@"Triangle" ofType:@"vs"];
+    NSString *fPath = [[NSBundle mainBundle] pathForResource:@"Triangle" ofType:@"fs"];
+    _render = new ESRender([vPath cStringUsingEncoding:NSUTF8StringEncoding], [fPath cStringUsingEncoding:NSUTF8StringEncoding]);
     _render->setupGL();
 }
 
