@@ -7,27 +7,57 @@
 
 #include "esUtil.h"
 
+//#define veo
+
 typedef struct {
     GLuint programObject;
 } UserData;
 
 int Init(ESContext *esContext) {
+#ifdef veo
     char vShaderStr[] =
-       "#version 300 es                          \n"
-       "layout(location = 0) in vec4 vPosition;  \n"
-       "void main()                              \n"
-       "{                                        \n"
-       "   gl_Position = vPosition;              \n"
-       "}                                        \n";
+    "#version 300 es                          \n"
+    "layout(location = 0) in vec4 vPosition;  \n"
+//    "out vec4 vertexColor;                    \n"
+    "void main()                              \n"
+    "{                                        \n"
+    "   gl_Position = vPosition;              \n"
+//    "   vertexColor = vec4(1.0, 1.0, 0.0, 0.0);\n"
+    "}                                        \n";
 
     char fShaderStr[] =
-       "#version 300 es                              \n"
-       "precision mediump float;                     \n"
-       "out vec4 fragColor;                          \n"
-       "void main()                                  \n"
-       "{                                            \n"
-       "   fragColor = vec4 ( 1.0, 0.0, 0.0, 1.0 );  \n"
-       "}                                            \n";
+    "#version 300 es                              \n"
+    "precision mediump float;                     \n"
+//    "in vec4 vertexColor;                    \n"
+    "uniform vec4 ourColor;                          \n"
+    "out vec4 fragColor;                          \n"
+    "void main()                                  \n"
+    "{                                            \n"
+//    "   fragColor = vertexColor;  \n"
+    "   fragColor = ourColor;  \n"
+    "}                                            \n";
+#else
+    char vShaderStr[] =
+    "#version 300 es                          \n"
+    "layout(location = 0) in vec3 aPos;  \n"
+    "layout(location = 1) in vec3 aColor;  \n"
+    "out vec3 ourColor;                          \n"
+    "void main()                              \n"
+    "{                                        \n"
+    "   gl_Position = vec4(aPos, 1.0);              \n"
+    "   ourColor = aColor;              \n"
+    "}                                        \n";
+
+    char fShaderStr[] =
+    "#version 300 es                              \n"
+    "precision mediump float;                     \n"
+    "in vec3 ourColor;                          \n"
+    "out vec4 fragColor;                          \n"
+    "void main()                                  \n"
+    "{                                            \n"
+    "   fragColor = vec4(ourColor, 1.0);  \n"
+    "}                                            \n";
+#endif
     
     UserData *userData = esContext->userData;
     userData->programObject = esLoadProgram(vShaderStr, fShaderStr);
@@ -40,7 +70,7 @@ GLuint VAO, VBO, VEO;
 
 // VAO,VBO,VEO 画正方形
 void InitVAO(ESContext *esContext) {
-    
+#ifdef veo
     float vertices[] = {
         0.5f, 0.5f, 0.0f,   // 右上角
         0.5f, -0.5f, 0.0f,  // 右下角
@@ -57,7 +87,7 @@ void InitVAO(ESContext *esContext) {
         1, 2, 3  // 第二个三角形
     };
     
-    // 创建 VAO,VBO
+    // 创建 VAO,VBO,VEO
     glGenVertexArrays(1, &VAO);
     glGenBuffers(1, &VBO);
     glGenBuffers(1, &VEO);
@@ -72,6 +102,29 @@ void InitVAO(ESContext *esContext) {
     // 配置顶点属性指针
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GL_FLOAT), 0);
     glEnableVertexAttribArray(0);
+#else
+    float vertices[] = {
+        // 位置              // 颜色
+         0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,   // 右下
+        -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,   // 左下
+         0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f    // 顶部
+    };
+    
+    // 创建 VAO,VBO
+    glGenVertexArrays(1, &VAO);
+    glGenBuffers(1, &VBO);
+    // 绑定VAO,VBO
+    glBindVertexArray(VAO);
+    // 缓冲数据到VBO
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    // 配置顶点属性指针
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GL_FLOAT), 0);
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GL_FLOAT), (void *)(3 * sizeof(GL_FLOAT)));
+    glEnableVertexAttribArray(1);
+        
+#endif
     
     // 取消绑定,不能取消VEO的绑定
     glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -89,12 +142,18 @@ void Draw(ESContext *esContext) {
     
     glViewport(0, 0, esContext->width, esContext->height);
     glClear(GL_COLOR_BUFFER_BIT);
+    
     glUseProgram(data->programObject);
-
+    
+    int location = glGetUniformLocation(data->programObject, "ourColor");
+    glUniform4f(location, 0.0, 0.0, 1.0, 1.0);
     glBindVertexArray(VAO);
     
-//    glDrawArrays(GL_TRIANGLES, 0, 3);
+#ifdef veo
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+#else
+    glDrawArrays(GL_TRIANGLES, 0, 3);
+#endif //veo
 }
 
 int esMain(ESContext *esContext) {
