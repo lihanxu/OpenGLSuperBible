@@ -6,10 +6,10 @@
 //
 
 #import "ViewController.h"
-#include "ESRender.hpp"
+#include "TriangleRender.hpp"
 
 @interface ViewController () {
-    ESRender *_render;
+    TriangleRender *_render;
 }
 
 @property (nonatomic, strong) EAGLContext *context;
@@ -43,7 +43,7 @@
     [EAGLContext setCurrentContext:self.context];
     NSString *vPath = [[NSBundle mainBundle] pathForResource:@"Triangle" ofType:@"vs"];
     NSString *fPath = [[NSBundle mainBundle] pathForResource:@"Triangle" ofType:@"fs"];
-    _render = new ESRender([vPath cStringUsingEncoding:NSUTF8StringEncoding], [fPath cStringUsingEncoding:NSUTF8StringEncoding]);
+    _render = new TriangleRender([vPath cStringUsingEncoding:NSUTF8StringEncoding], [fPath cStringUsingEncoding:NSUTF8StringEncoding]);
     _render->setupGL();
 }
 

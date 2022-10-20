@@ -1,19 +1,18 @@
 //
-//  ESRender.cpp
+//  ContainerRender.cpp
 //  LeanOpenGL
 //
-//  Created by hansen on 2022/10/20.
+//  Created by 李涵旭 on 2022/10/20.
 //
 
-#include "ESRender.hpp"
-#include "esUtil.h"
+#include "ContainerRender.hpp"
 #include "Shader.hpp"
 
 typedef struct {
     GLuint programObject;
 } UserData;
 
-class ESRender::Impl {
+class ContainerRender::Impl {
 public:
     GLint _width;
     GLint _height;
@@ -86,26 +85,26 @@ private:
     
 };
 
-ESRender::ESRender(const char *vertextPath, const char *fragmentPath)
+ContainerRender::ContainerRender(const char *vertextPath, const char *fragmentPath)
     :m_pImpl(new Impl(vertextPath, fragmentPath)) {
     
 }
 
-ESRender::~ESRender() {}
+ContainerRender::~ContainerRender() {}
 
-int ESRender::setupGL() {
+int ContainerRender::setupGL() {
     return m_pImpl->setupGL();
 }
 
-void ESRender::tearDownGL() {
+void ContainerRender::tearDownGL() {
     m_pImpl->tearDownGL();
 }
 
-void ESRender::updateWindowSize(int width, int height) {
+void ContainerRender::updateWindowSize(int width, int height) {
     m_pImpl->updateWindowSize(width, height);
 }
 
-void ESRender::draw() {
+void ContainerRender::draw() {
     m_pImpl->draw();
 }
 

@@ -1,5 +1,5 @@
 //
-//  ESRender.hpp
+//  TriangleRender.hpp
 //  LeanOpenGL
 //
 //  Created by hansen on 2022/10/20.
@@ -11,10 +11,10 @@
 #include <stdio.h>
 #include <string>
 
-class ESRender {
+class TriangleRender {
 public:
-    ESRender(const char *vertextPath, const char *fragmentPath);
-    ~ESRender();
+    TriangleRender(const char *vertextPath, const char *fragmentPath);
+    ~TriangleRender();
 
     int setupGL();
     void tearDownGL();
