@@ -1,0 +1,425 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		604C252528FD5C0800F35CAD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 604C252428FD5C0800F35CAD /* AppDelegate.m */; };
+		604C252B28FD5C0800F35CAD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 604C252A28FD5C0800F35CAD /* ViewController.m */; };
+		604C252E28FD5C0800F35CAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 604C252C28FD5C0800F35CAD /* Main.storyboard */; };
+		604C253028FD5C0A00F35CAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 604C252F28FD5C0A00F35CAD /* Assets.xcassets */; };
+		604C253328FD5C0A00F35CAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 604C253128FD5C0A00F35CAD /* LaunchScreen.storyboard */; };
+		604C253628FD5C0A00F35CAD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 604C253528FD5C0A00F35CAD /* main.m */; };
+		604C259028FE48BB00F35CAD /* esTransform.c in Sources */ = {isa = PBXBuildFile; fileRef = 604C258928FE48BB00F35CAD /* esTransform.c */; };
+		604C259128FE48BB00F35CAD /* esShapes.c in Sources */ = {isa = PBXBuildFile; fileRef = 604C258A28FE48BB00F35CAD /* esShapes.c */; };
+		604C259228FE48BB00F35CAD /* esShader.c in Sources */ = {isa = PBXBuildFile; fileRef = 604C258B28FE48BB00F35CAD /* esShader.c */; };
+		604C259328FE48BB00F35CAD /* esUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = 604C258C28FE48BB00F35CAD /* esUtil.c */; };
+		604C259428FE48BB00F35CAD /* FileWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 604C258F28FE48BB00F35CAD /* FileWrapper.m */; };
+		604C259628FE800900F35CAD /* Hello_Triangle.c in Sources */ = {isa = PBXBuildFile; fileRef = 604C259528FE800900F35CAD /* Hello_Triangle.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		604C252028FD5C0800F35CAD /* Triangle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Triangle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		604C252328FD5C0800F35CAD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		604C252428FD5C0800F35CAD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		604C252928FD5C0800F35CAD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		604C252A28FD5C0800F35CAD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		604C252D28FD5C0800F35CAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		604C252F28FD5C0A00F35CAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		604C253228FD5C0A00F35CAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		604C253428FD5C0A00F35CAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		604C253528FD5C0A00F35CAD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		604C258728FE48BB00F35CAD /* esUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = esUtil.h; sourceTree = "<group>"; };
+		604C258928FE48BB00F35CAD /* esTransform.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = esTransform.c; sourceTree = "<group>"; };
+		604C258A28FE48BB00F35CAD /* esShapes.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = esShapes.c; sourceTree = "<group>"; };
+		604C258B28FE48BB00F35CAD /* esShader.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = esShader.c; sourceTree = "<group>"; };
+		604C258C28FE48BB00F35CAD /* esUtil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = esUtil.c; sourceTree = "<group>"; };
+		604C258E28FE48BB00F35CAD /* FileWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileWrapper.h; sourceTree = "<group>"; };
+		604C258F28FE48BB00F35CAD /* FileWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileWrapper.m; sourceTree = "<group>"; };
+		604C259528FE800900F35CAD /* Hello_Triangle.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Hello_Triangle.c; sourceTree = "<group>"; };
+		604C259728FE80B000F35CAD /* esUtil_win.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = esUtil_win.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		604C251D28FD5C0800F35CAD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		604C251728FD5C0800F35CAD = {
+			isa = PBXGroup;
+			children = (
+				604C252228FD5C0800F35CAD /* Triangle */,
+				604C252128FD5C0800F35CAD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		604C252128FD5C0800F35CAD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				604C252028FD5C0800F35CAD /* Triangle.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		604C252228FD5C0800F35CAD /* Triangle */ = {
+			isa = PBXGroup;
+			children = (
+				604C258428FE48BB00F35CAD /* Common */,
+				604C252328FD5C0800F35CAD /* AppDelegate.h */,
+				604C252428FD5C0800F35CAD /* AppDelegate.m */,
+				604C252928FD5C0800F35CAD /* ViewController.h */,
+				604C252A28FD5C0800F35CAD /* ViewController.m */,
+				604C259528FE800900F35CAD /* Hello_Triangle.c */,
+				604C252C28FD5C0800F35CAD /* Main.storyboard */,
+				604C252F28FD5C0A00F35CAD /* Assets.xcassets */,
+				604C253128FD5C0A00F35CAD /* LaunchScreen.storyboard */,
+				604C253428FD5C0A00F35CAD /* Info.plist */,
+				604C253528FD5C0A00F35CAD /* main.m */,
+			);
+			path = Triangle;
+			sourceTree = "<group>";
+		};
+		604C258428FE48BB00F35CAD /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				604C258528FE48BB00F35CAD /* Include */,
+				604C258828FE48BB00F35CAD /* Source */,
+				604C258D28FE48BB00F35CAD /* iOS */,
+			);
+			name = Common;
+			path = ../../Common;
+			sourceTree = "<group>";
+		};
+		604C258528FE48BB00F35CAD /* Include */ = {
+			isa = PBXGroup;
+			children = (
+				604C259728FE80B000F35CAD /* esUtil_win.h */,
+				604C258728FE48BB00F35CAD /* esUtil.h */,
+			);
+			path = Include;
+			sourceTree = "<group>";
+		};
+		604C258828FE48BB00F35CAD /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				604C258928FE48BB00F35CAD /* esTransform.c */,
+				604C258A28FE48BB00F35CAD /* esShapes.c */,
+				604C258B28FE48BB00F35CAD /* esShader.c */,
+				604C258C28FE48BB00F35CAD /* esUtil.c */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		604C258D28FE48BB00F35CAD /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				604C258E28FE48BB00F35CAD /* FileWrapper.h */,
+				604C258F28FE48BB00F35CAD /* FileWrapper.m */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		604C251F28FD5C0800F35CAD /* Triangle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 604C253928FD5C0A00F35CAD /* Build configuration list for PBXNativeTarget "Triangle" */;
+			buildPhases = (
+				604C251C28FD5C0800F35CAD /* Sources */,
+				604C251D28FD5C0800F35CAD /* Frameworks */,
+				604C251E28FD5C0800F35CAD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Triangle;
+			productName = Triangle;
+			productReference = 604C252028FD5C0800F35CAD /* Triangle.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		604C251828FD5C0800F35CAD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					604C251F28FD5C0800F35CAD = {
+						CreatedOnToolsVersion = 14.0;
+					};
+				};
+			};
+			buildConfigurationList = 604C251B28FD5C0800F35CAD /* Build configuration list for PBXProject "Triangle" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 604C251728FD5C0800F35CAD;
+			productRefGroup = 604C252128FD5C0800F35CAD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				604C251F28FD5C0800F35CAD /* Triangle */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		604C251E28FD5C0800F35CAD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				604C253328FD5C0A00F35CAD /* LaunchScreen.storyboard in Resources */,
+				604C253028FD5C0A00F35CAD /* Assets.xcassets in Resources */,
+				604C252E28FD5C0800F35CAD /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		604C251C28FD5C0800F35CAD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				604C259228FE48BB00F35CAD /* esShader.c in Sources */,
+				604C259428FE48BB00F35CAD /* FileWrapper.m in Sources */,
+				604C259328FE48BB00F35CAD /* esUtil.c in Sources */,
+				604C259128FE48BB00F35CAD /* esShapes.c in Sources */,
+				604C252B28FD5C0800F35CAD /* ViewController.m in Sources */,
+				604C259628FE800900F35CAD /* Hello_Triangle.c in Sources */,
+				604C252528FD5C0800F35CAD /* AppDelegate.m in Sources */,
+				604C259028FE48BB00F35CAD /* esTransform.c in Sources */,
+				604C253628FD5C0A00F35CAD /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		604C252C28FD5C0800F35CAD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				604C252D28FD5C0800F35CAD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		604C253128FD5C0A00F35CAD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				604C253228FD5C0A00F35CAD /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		604C253728FD5C0A00F35CAD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		604C253828FD5C0A00F35CAD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		604C253A28FD5C0A00F35CAD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5S6DCB24V8;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Triangle/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.oldface.Triangle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../Common";
+			};
+			name = Debug;
+		};
+		604C253B28FD5C0A00F35CAD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5S6DCB24V8;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Triangle/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.oldface.Triangle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../Common";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		604C251B28FD5C0800F35CAD /* Build configuration list for PBXProject "Triangle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				604C253728FD5C0A00F35CAD /* Debug */,
+				604C253828FD5C0A00F35CAD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		604C253928FD5C0A00F35CAD /* Build configuration list for PBXNativeTarget "Triangle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				604C253A28FD5C0A00F35CAD /* Debug */,
+				604C253B28FD5C0A00F35CAD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 604C251828FD5C0800F35CAD /* Project object */;
+}
