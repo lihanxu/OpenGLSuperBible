@@ -10,6 +10,7 @@
 
 #include <stdio.h>
 #include <string>
+#include "esUtil.h"
 
 class Shader {
     

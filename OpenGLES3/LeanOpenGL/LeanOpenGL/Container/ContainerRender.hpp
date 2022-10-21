@@ -9,7 +9,7 @@
 #define ContainerRender_hpp
 
 #include <stdio.h>
-#include <string>
+#include <memory>
 
 class ContainerRender {
 public:

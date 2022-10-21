@@ -6,7 +6,6 @@
 //
 
 #include "TriangleRender.hpp"
-#include "esUtil.h"
 #include "Shader.hpp"
 
 typedef struct {

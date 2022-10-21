@@ -9,7 +9,7 @@
 #define ESRender_hpp
 
 #include <stdio.h>
-#include <string>
+#include <memory>
 
 class TriangleRender {
 public:
