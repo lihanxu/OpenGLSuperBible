@@ -9,6 +9,10 @@
 #include "Shader.hpp"
 #include "stb_image.h"
 #include <iostream>
+//#include "glm.hpp"
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform1.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 extern "C" {
 #include "FileWrapper.h"
@@ -22,7 +26,7 @@ class ContainerRenderer::Impl {
 public:
     GLint _width;
     GLint _height;
-    
+    int _time = 0;
 private:
     Shader _shader;
     GLuint _VAO;
@@ -36,6 +40,7 @@ public:
     ~Impl() {}
     
     int setupGL() {
+        
         glClearColor(1.0, 1.0, 1.0, 0.0f);
         
         genVAO();
@@ -65,8 +70,15 @@ public:
     void draw() {
         glViewport(0, 0, _width, _height);
         glClear(GL_COLOR_BUFFER_BIT);
+        _time++;
+        glm::mat4 trans = glm::mat4(1.0f);
+        trans = glm::translate(trans, glm::vec3(0.5, -0.5, 0.0));
+        trans = glm::rotate(trans, glm::radians((float)_time), glm::vec3(0.0, 0.0, 1.0));
         
         _shader.use();
+        
+        GLuint loc = glGetUniformLocation(_shader.ID, "transform");
+        glUniformMatrix4fv(loc, 1, GL_FALSE, glm::value_ptr(trans));
         
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, _texture1);
