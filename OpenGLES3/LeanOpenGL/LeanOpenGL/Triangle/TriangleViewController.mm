@@ -6,10 +6,10 @@
 //
 
 #import "TriangleViewController.h"
-#include "TriangleRender.hpp"
+#include "TriangleRenderer.hpp"
 
 @interface TriangleViewController () {
-    TriangleRender *_render;
+    TriangleRenderer *_render;
 }
 
 @end
@@ -21,7 +21,7 @@
     [super setupGL];
     NSString *vPath = [[NSBundle mainBundle] pathForResource:@"Triangle" ofType:@"vs"];
     NSString *fPath = [[NSBundle mainBundle] pathForResource:@"Triangle" ofType:@"fs"];
-    _render = new TriangleRender([vPath cStringUsingEncoding:NSUTF8StringEncoding], [fPath cStringUsingEncoding:NSUTF8StringEncoding]);
+    _render = new TriangleRenderer([vPath cStringUsingEncoding:NSUTF8StringEncoding], [fPath cStringUsingEncoding:NSUTF8StringEncoding]);
     _render->setupGL();
 }
 

@@ -1,5 +1,5 @@
 //
-//  ContainerRender.hpp
+//  ContainerRenderer.hpp
 //  LeanOpenGL
 //
 //  Created by 李涵旭 on 2022/10/20.
@@ -11,10 +11,10 @@
 #include <stdio.h>
 #include <memory>
 
-class ContainerRender {
+class ContainerRenderer {
 public:
-    ContainerRender(const char *vertextPath, const char *fragmentPath);
-    ~ContainerRender();
+    ContainerRenderer(const char *vertextPath, const char *fragmentPath);
+    ~ContainerRenderer();
 
     int setupGL();
     void tearDownGL();

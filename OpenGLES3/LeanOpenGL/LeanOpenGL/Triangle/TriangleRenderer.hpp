@@ -1,5 +1,5 @@
 //
-//  TriangleRender.hpp
+//  TriangleRenderer.hpp
 //  LeanOpenGL
 //
 //  Created by hansen on 2022/10/20.
@@ -11,10 +11,10 @@
 #include <stdio.h>
 #include <memory>
 
-class TriangleRender {
+class TriangleRenderer {
 public:
-    TriangleRender(const char *vertextPath, const char *fragmentPath);
-    ~TriangleRender();
+    TriangleRenderer(const char *vertextPath, const char *fragmentPath);
+    ~TriangleRenderer();
 
     int setupGL();
     void tearDownGL();

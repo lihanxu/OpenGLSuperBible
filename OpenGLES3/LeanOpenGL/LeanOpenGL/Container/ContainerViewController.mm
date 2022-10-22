@@ -6,10 +6,10 @@
 //
 
 #import "ContainerViewController.h"
-#include "ContainerRender.hpp""
+#include "ContainerRenderer.hpp"
 
 @interface ContainerViewController () {
-    ContainerRender *_render;
+    ContainerRenderer *_render;
 }
 
 @end
@@ -19,9 +19,9 @@
 /// 配置OpenGL 环境
 - (void)setupGL {
     [super setupGL];
-    NSString *vPath = [[NSBundle mainBundle] pathForResource:@"Triangle" ofType:@"vs"];
-    NSString *fPath = [[NSBundle mainBundle] pathForResource:@"Triangle" ofType:@"fs"];
-    _render = new ContainerRender([vPath cStringUsingEncoding:NSUTF8StringEncoding], [fPath cStringUsingEncoding:NSUTF8StringEncoding]);
+    NSString *vPath = [[NSBundle mainBundle] pathForResource:@"Container" ofType:@"vs"];
+    NSString *fPath = [[NSBundle mainBundle] pathForResource:@"Container" ofType:@"fs"];
+    _render = new ContainerRenderer([vPath cStringUsingEncoding:NSUTF8StringEncoding], [fPath cStringUsingEncoding:NSUTF8StringEncoding]);
     _render->setupGL();
 }
 
