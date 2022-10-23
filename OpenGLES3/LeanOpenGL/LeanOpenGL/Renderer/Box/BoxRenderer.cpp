@@ -56,6 +56,7 @@ public:
     
     int setupGL() {
         
+        glEnable(GL_DEPTH_TEST);
         glClearColor(1.0, 1.0, 1.0, 0.0f);
         
         genVAO();
@@ -80,11 +81,14 @@ public:
         }
         _width = width;
         _height = height;
+        glViewport(0, 0, _width, _height);
+        // 透视矩阵
+        glm::mat4 projection = glm::mat4(1.0f);
+        projection = glm::perspective(glm::radians(45.0f), (float)_width/(float)_height, 0.1f, 100.0f);
+        _shader.setMatrix4fv("projection", glm::value_ptr(projection));
     }
     
     void draw() {
-        glViewport(0, 0, _width, _height);
-        glEnable(GL_DEPTH_TEST);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         
         glActiveTexture(GL_TEXTURE0);
@@ -97,14 +101,12 @@ public:
         _shader.use();
         _time += 1.0/30.0;
         
-        // 视图矩阵
-        glm::mat4 view = glm::mat4(1.0f);
-        view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
+        // 视图矩阵:lookAt(相机位置，目标位置，上向量)
+        float radius = 10.0f;
+        float camX = sin(_time) * radius;
+        float camZ = cos(_time) * radius;
+        glm::mat4 view = glm::lookAt(glm::vec3(camX, 0.0f, camZ), glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.0f, 1.0f, 0.0f));
         _shader.setMatrix4fv("view", glm::value_ptr(view));
-        // 透视矩阵
-        glm::mat4 projection = glm::mat4(1.0f);
-        projection = glm::perspective(glm::radians(45.0f), (float)_width/(float)_height, 0.1f, 100.0f);
-        _shader.setMatrix4fv("projection", glm::value_ptr(projection));
 
         for (unsigned int i = 0; i < 10; i++) {
             // 模型矩阵
