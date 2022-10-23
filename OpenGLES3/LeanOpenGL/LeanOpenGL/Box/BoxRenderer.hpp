@@ -1,0 +1,29 @@
+//
+//  BoxRenderer.hpp
+//  LeanOpenGL
+//
+//  Created by 李涵旭 on 2022/10/23.
+//
+
+#ifndef BoxRenderer_hpp
+#define BoxRenderer_hpp
+
+#include <stdio.h>
+#include <memory>
+
+class BoxRenderer {
+public:
+    BoxRenderer(const char *vertextPath, const char *fragmentPath);
+    ~BoxRenderer();
+
+    int setupGL();
+    void tearDownGL();
+    void updateWindowSize(int width, int height);
+    void draw();
+
+private:
+    class Impl;
+    std::unique_ptr<Impl> m_pImpl;
+};
+
+#endif /* BoxRenderer_hpp */

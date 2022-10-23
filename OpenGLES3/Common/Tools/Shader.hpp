@@ -29,7 +29,7 @@ public:
     void setFloat(const std::string &name, float value) const;
     void setFloat3(const std::string &name, float value1, float value2, float value3) const;
     void setFloat4(const std::string &name, float value1, float value2, float value3, float value4) const;
-
+    void setMatrix4fv(const std::string &name, float *value) const;
 };
 
 #endif /* Shader_hpp */

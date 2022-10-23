@@ -96,6 +96,10 @@
 		ED18D7A8290478EC000FBE18 /* random.inl in Resources */ = {isa = PBXBuildFile; fileRef = ED18D758290478EC000FBE18 /* random.inl */; };
 		ED18D7A9290478EC000FBE18 /* constants.inl in Resources */ = {isa = PBXBuildFile; fileRef = ED18D75A290478EC000FBE18 /* constants.inl */; };
 		ED18D7AA290478EC000FBE18 /* type_ptr.inl in Resources */ = {isa = PBXBuildFile; fileRef = ED18D75D290478EC000FBE18 /* type_ptr.inl */; };
+		ED18D826290514F1000FBE18 /* BoxViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED18D825290514F1000FBE18 /* BoxViewController.mm */; };
+		ED18D82929051500000FBE18 /* BoxRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED18D82729051500000FBE18 /* BoxRenderer.cpp */; };
+		ED18D82D29051517000FBE18 /* Box.vs in Resources */ = {isa = PBXBuildFile; fileRef = ED18D82B29051517000FBE18 /* Box.vs */; };
+		ED18D82E29051517000FBE18 /* Box.fs in Resources */ = {isa = PBXBuildFile; fileRef = ED18D82C29051517000FBE18 /* Box.fs */; };
 		ED47533C2902F2990001710C /* TriangleViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED47533B2902F2990001710C /* TriangleViewController.mm */; };
 		ED4753402902F7060001710C /* MainViewPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = ED47533F2902F7060001710C /* MainViewPresenter.m */; };
 		ED4753432902FA6C0001710C /* OpenGLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4753422902FA6C0001710C /* OpenGLViewController.m */; };
@@ -428,6 +432,12 @@
 		ED18D75D290478EC000FBE18 /* type_ptr.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = type_ptr.inl; sourceTree = "<group>"; };
 		ED18D75E290478EC000FBE18 /* type_aligned.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = type_aligned.hpp; sourceTree = "<group>"; };
 		ED18D75F290478EC000FBE18 /* common.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = common.hpp; sourceTree = "<group>"; };
+		ED18D824290514F1000FBE18 /* BoxViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxViewController.h; sourceTree = "<group>"; };
+		ED18D825290514F1000FBE18 /* BoxViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = BoxViewController.mm; sourceTree = "<group>"; };
+		ED18D82729051500000FBE18 /* BoxRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BoxRenderer.cpp; sourceTree = "<group>"; };
+		ED18D82829051500000FBE18 /* BoxRenderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BoxRenderer.hpp; sourceTree = "<group>"; };
+		ED18D82B29051517000FBE18 /* Box.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Box.vs; sourceTree = "<group>"; };
+		ED18D82C29051517000FBE18 /* Box.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Box.fs; sourceTree = "<group>"; };
 		ED47533A2902F2990001710C /* TriangleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TriangleViewController.h; sourceTree = "<group>"; };
 		ED47533B2902F2990001710C /* TriangleViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TriangleViewController.mm; sourceTree = "<group>"; };
 		ED47533E2902F7060001710C /* MainViewPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewPresenter.h; sourceTree = "<group>"; };
@@ -559,6 +569,7 @@
 		604C25CA2901464B00F35CAD /* LeanOpenGL */ = {
 			isa = PBXGroup;
 			children = (
+				ED18D823290514D3000FBE18 /* Box */,
 				ED47533D2902F3980001710C /* Container */,
 				601726EC2901483A00C8CC8B /* Triangle */,
 				604C25CB2901464B00F35CAD /* AppDelegate.h */,
@@ -911,6 +922,27 @@
 			path = gtc;
 			sourceTree = "<group>";
 		};
+		ED18D823290514D3000FBE18 /* Box */ = {
+			isa = PBXGroup;
+			children = (
+				ED18D82A29051517000FBE18 /* shader */,
+				ED18D82729051500000FBE18 /* BoxRenderer.cpp */,
+				ED18D82829051500000FBE18 /* BoxRenderer.hpp */,
+				ED18D824290514F1000FBE18 /* BoxViewController.h */,
+				ED18D825290514F1000FBE18 /* BoxViewController.mm */,
+			);
+			path = Box;
+			sourceTree = "<group>";
+		};
+		ED18D82A29051517000FBE18 /* shader */ = {
+			isa = PBXGroup;
+			children = (
+				ED18D82B29051517000FBE18 /* Box.vs */,
+				ED18D82C29051517000FBE18 /* Box.fs */,
+			);
+			path = shader;
+			sourceTree = "<group>";
+		};
 		ED47533D2902F3980001710C /* Container */ = {
 			isa = PBXGroup;
 			children = (
@@ -1067,6 +1099,7 @@
 				ED18D787290478EC000FBE18 /* func_packing_simd.inl in Resources */,
 				604C25DB2901464E00F35CAD /* LaunchScreen.storyboard in Resources */,
 				ED18D798290478EC000FBE18 /* type_mat3x3.inl in Resources */,
+				ED18D82D29051517000FBE18 /* Box.vs in Resources */,
 				ED18D791290478EC000FBE18 /* type_vec3.inl in Resources */,
 				604C25D82901464E00F35CAD /* Assets.xcassets in Resources */,
 				604C25D62901464B00F35CAD /* Main.storyboard in Resources */,
@@ -1082,6 +1115,7 @@
 				ED18D7A4290478EC000FBE18 /* matrix_transform1.inl in Resources */,
 				ED18D779290478EC000FBE18 /* func_vector_relational.inl in Resources */,
 				ED18D7A8290478EC000FBE18 /* random.inl in Resources */,
+				ED18D82E29051517000FBE18 /* Box.fs in Resources */,
 				ED18D767290478EC000FBE18 /* matrix_common.inl in Resources */,
 				ED18D76A290478EC000FBE18 /* quaternion_common_simd.inl in Resources */,
 				ED18D79E290478EC000FBE18 /* round.inl in Resources */,
@@ -1114,8 +1148,10 @@
 				601726E7290147E800C8CC8B /* esShader.c in Sources */,
 				601726E4290147E800C8CC8B /* Shader.cpp in Sources */,
 				604C25DE2901464E00F35CAD /* main.m in Sources */,
+				ED18D826290514F1000FBE18 /* BoxViewController.mm in Sources */,
 				601726E6290147E800C8CC8B /* esShapes.c in Sources */,
 				601726E8290147E800C8CC8B /* esUtil.c in Sources */,
+				ED18D82929051500000FBE18 /* BoxRenderer.cpp in Sources */,
 				EDC76C2D2901A2A2005BDC14 /* ContainerRenderer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

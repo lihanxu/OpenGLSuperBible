@@ -8,6 +8,7 @@
 #import "MainViewPresenter.h"
 #import "Triangle/TriangleViewController.h"
 #import "Container/ContainerViewController.h"
+#import "Box/BoxViewController.h"
 
 @interface MainViewPresenter ()
 
@@ -22,6 +23,7 @@
     self.items = [[NSArray alloc] initWithObjects:
                   @"Triangle",
                   @"Container",
+                  @"Box",
                   nil];
     return self;
 }
@@ -36,6 +38,8 @@
         vc = [[TriangleViewController alloc] init];
     } else if ([itemName isEqualToString:@"Container"]) {
         vc = [[ContainerViewController alloc] init];
+    } else if ([itemName isEqualToString:@"Box"]) {
+        vc = [[BoxViewController alloc] init];
     }
     return vc;
 }
