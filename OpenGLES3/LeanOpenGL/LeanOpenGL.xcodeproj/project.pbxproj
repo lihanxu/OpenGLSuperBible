@@ -96,14 +96,11 @@
 		ED18D7A8290478EC000FBE18 /* random.inl in Resources */ = {isa = PBXBuildFile; fileRef = ED18D758290478EC000FBE18 /* random.inl */; };
 		ED18D7A9290478EC000FBE18 /* constants.inl in Resources */ = {isa = PBXBuildFile; fileRef = ED18D75A290478EC000FBE18 /* constants.inl */; };
 		ED18D7AA290478EC000FBE18 /* type_ptr.inl in Resources */ = {isa = PBXBuildFile; fileRef = ED18D75D290478EC000FBE18 /* type_ptr.inl */; };
-		ED18D826290514F1000FBE18 /* BoxViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED18D825290514F1000FBE18 /* BoxViewController.mm */; };
 		ED18D82929051500000FBE18 /* BoxRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED18D82729051500000FBE18 /* BoxRenderer.cpp */; };
 		ED18D82D29051517000FBE18 /* Box.vs in Resources */ = {isa = PBXBuildFile; fileRef = ED18D82B29051517000FBE18 /* Box.vs */; };
 		ED18D82E29051517000FBE18 /* Box.fs in Resources */ = {isa = PBXBuildFile; fileRef = ED18D82C29051517000FBE18 /* Box.fs */; };
-		ED47533C2902F2990001710C /* TriangleViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED47533B2902F2990001710C /* TriangleViewController.mm */; };
-		ED4753402902F7060001710C /* MainViewPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = ED47533F2902F7060001710C /* MainViewPresenter.m */; };
+		ED18D834290536B0000FBE18 /* RendererPresenter.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED18D833290536B0000FBE18 /* RendererPresenter.mm */; };
 		ED4753432902FA6C0001710C /* OpenGLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4753422902FA6C0001710C /* OpenGLViewController.m */; };
-		ED47534F29030E500001710C /* ContainerViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED47534E29030E500001710C /* ContainerViewController.mm */; };
 		ED475353290399B40001710C /* Container.fs in Resources */ = {isa = PBXBuildFile; fileRef = ED475351290399B40001710C /* Container.fs */; };
 		ED475354290399B40001710C /* Container.vs in Resources */ = {isa = PBXBuildFile; fileRef = ED475352290399B40001710C /* Container.vs */; };
 		ED4753562903ABFE0001710C /* awesomeface.png in Resources */ = {isa = PBXBuildFile; fileRef = ED4753552903ABFE0001710C /* awesomeface.png */; };
@@ -432,20 +429,15 @@
 		ED18D75D290478EC000FBE18 /* type_ptr.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = type_ptr.inl; sourceTree = "<group>"; };
 		ED18D75E290478EC000FBE18 /* type_aligned.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = type_aligned.hpp; sourceTree = "<group>"; };
 		ED18D75F290478EC000FBE18 /* common.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = common.hpp; sourceTree = "<group>"; };
-		ED18D824290514F1000FBE18 /* BoxViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxViewController.h; sourceTree = "<group>"; };
-		ED18D825290514F1000FBE18 /* BoxViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = BoxViewController.mm; sourceTree = "<group>"; };
 		ED18D82729051500000FBE18 /* BoxRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BoxRenderer.cpp; sourceTree = "<group>"; };
 		ED18D82829051500000FBE18 /* BoxRenderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BoxRenderer.hpp; sourceTree = "<group>"; };
 		ED18D82B29051517000FBE18 /* Box.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Box.vs; sourceTree = "<group>"; };
 		ED18D82C29051517000FBE18 /* Box.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Box.fs; sourceTree = "<group>"; };
-		ED47533A2902F2990001710C /* TriangleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TriangleViewController.h; sourceTree = "<group>"; };
-		ED47533B2902F2990001710C /* TriangleViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TriangleViewController.mm; sourceTree = "<group>"; };
-		ED47533E2902F7060001710C /* MainViewPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewPresenter.h; sourceTree = "<group>"; };
-		ED47533F2902F7060001710C /* MainViewPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewPresenter.m; sourceTree = "<group>"; };
+		ED18D83029052ADE000FBE18 /* BaseRenderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BaseRenderer.hpp; sourceTree = "<group>"; };
+		ED18D832290536B0000FBE18 /* RendererPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RendererPresenter.h; sourceTree = "<group>"; };
+		ED18D833290536B0000FBE18 /* RendererPresenter.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = RendererPresenter.mm; sourceTree = "<group>"; };
 		ED4753412902FA6C0001710C /* OpenGLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenGLViewController.h; sourceTree = "<group>"; };
 		ED4753422902FA6C0001710C /* OpenGLViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenGLViewController.m; sourceTree = "<group>"; };
-		ED47534D29030E500001710C /* ContainerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContainerViewController.h; sourceTree = "<group>"; };
-		ED47534E29030E500001710C /* ContainerViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ContainerViewController.mm; sourceTree = "<group>"; };
 		ED475351290399B40001710C /* Container.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Container.fs; sourceTree = "<group>"; };
 		ED475352290399B40001710C /* Container.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Container.vs; sourceTree = "<group>"; };
 		ED4753552903ABFE0001710C /* awesomeface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = awesomeface.png; sourceTree = "<group>"; };
@@ -530,8 +522,6 @@
 				ED91D4292901826E00BB3B37 /* shader */,
 				601727022901497E00C8CC8B /* TriangleRenderer.cpp */,
 				601727032901497E00C8CC8B /* TriangleRenderer.hpp */,
-				ED47533A2902F2990001710C /* TriangleViewController.h */,
-				ED47533B2902F2990001710C /* TriangleViewController.mm */,
 			);
 			path = Triangle;
 			sourceTree = "<group>";
@@ -549,8 +539,8 @@
 		604C25BF2901464B00F35CAD = {
 			isa = PBXGroup;
 			children = (
-				ED18D635290478EB000FBE18 /* glm */,
 				EDC76C252901A076005BDC14 /* Resource */,
+				ED18D635290478EB000FBE18 /* glm */,
 				601726D5290147E800C8CC8B /* Common */,
 				604C25CA2901464B00F35CAD /* LeanOpenGL */,
 				604C25C92901464B00F35CAD /* Products */,
@@ -569,15 +559,11 @@
 		604C25CA2901464B00F35CAD /* LeanOpenGL */ = {
 			isa = PBXGroup;
 			children = (
-				ED18D823290514D3000FBE18 /* Box */,
-				ED47533D2902F3980001710C /* Container */,
-				601726EC2901483A00C8CC8B /* Triangle */,
+				ED18D83529053C95000FBE18 /* Renderer */,
 				604C25CB2901464B00F35CAD /* AppDelegate.h */,
 				604C25CC2901464B00F35CAD /* AppDelegate.m */,
 				604C25D12901464B00F35CAD /* MainTableViewController.h */,
 				604C25D22901464B00F35CAD /* MainTableViewController.m */,
-				ED47533E2902F7060001710C /* MainViewPresenter.h */,
-				ED47533F2902F7060001710C /* MainViewPresenter.m */,
 				ED4753412902FA6C0001710C /* OpenGLViewController.h */,
 				ED4753422902FA6C0001710C /* OpenGLViewController.m */,
 				604C25D42901464B00F35CAD /* Main.storyboard */,
@@ -928,8 +914,6 @@
 				ED18D82A29051517000FBE18 /* shader */,
 				ED18D82729051500000FBE18 /* BoxRenderer.cpp */,
 				ED18D82829051500000FBE18 /* BoxRenderer.hpp */,
-				ED18D824290514F1000FBE18 /* BoxViewController.h */,
-				ED18D825290514F1000FBE18 /* BoxViewController.mm */,
 			);
 			path = Box;
 			sourceTree = "<group>";
@@ -943,14 +927,25 @@
 			path = shader;
 			sourceTree = "<group>";
 		};
+		ED18D83529053C95000FBE18 /* Renderer */ = {
+			isa = PBXGroup;
+			children = (
+				ED18D823290514D3000FBE18 /* Box */,
+				ED47533D2902F3980001710C /* Container */,
+				601726EC2901483A00C8CC8B /* Triangle */,
+				ED18D83029052ADE000FBE18 /* BaseRenderer.hpp */,
+				ED18D832290536B0000FBE18 /* RendererPresenter.h */,
+				ED18D833290536B0000FBE18 /* RendererPresenter.mm */,
+			);
+			path = Renderer;
+			sourceTree = "<group>";
+		};
 		ED47533D2902F3980001710C /* Container */ = {
 			isa = PBXGroup;
 			children = (
 				ED475350290399B40001710C /* shader */,
 				EDC76C2B2901A2A2005BDC14 /* ContainerRenderer.cpp */,
 				EDC76C2C2901A2A2005BDC14 /* ContainerRenderer.hpp */,
-				ED47534D29030E500001710C /* ContainerViewController.h */,
-				ED47534E29030E500001710C /* ContainerViewController.mm */,
 			);
 			path = Container;
 			sourceTree = "<group>";
@@ -1136,19 +1131,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				601726E5290147E800C8CC8B /* esTransform.c in Sources */,
+				ED18D834290536B0000FBE18 /* RendererPresenter.mm in Sources */,
 				604C25D32901464B00F35CAD /* MainTableViewController.m in Sources */,
 				604C25CD2901464B00F35CAD /* AppDelegate.m in Sources */,
 				601726E9290147E800C8CC8B /* FileWrapper.m in Sources */,
-				ED47533C2902F2990001710C /* TriangleViewController.mm in Sources */,
 				EDC76C2A2901A1EE005BDC14 /* stb_image_cpp.cpp in Sources */,
-				ED47534F29030E500001710C /* ContainerViewController.mm in Sources */,
-				ED4753402902F7060001710C /* MainViewPresenter.m in Sources */,
 				ED4753432902FA6C0001710C /* OpenGLViewController.m in Sources */,
 				601727042901497E00C8CC8B /* TriangleRenderer.cpp in Sources */,
 				601726E7290147E800C8CC8B /* esShader.c in Sources */,
 				601726E4290147E800C8CC8B /* Shader.cpp in Sources */,
 				604C25DE2901464E00F35CAD /* main.m in Sources */,
-				ED18D826290514F1000FBE18 /* BoxViewController.mm in Sources */,
 				601726E6290147E800C8CC8B /* esShapes.c in Sources */,
 				601726E8290147E800C8CC8B /* esUtil.c in Sources */,
 				ED18D82929051500000FBE18 /* BoxRenderer.cpp in Sources */,

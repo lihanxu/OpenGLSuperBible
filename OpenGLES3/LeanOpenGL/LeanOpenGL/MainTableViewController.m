@@ -6,11 +6,10 @@
 //
 
 #import "MainTableViewController.h"
-#import "MainViewPresenter.h"
+#import "OpenGLViewController.h"
 
 @interface MainTableViewController ()
 
-@property (strong, nonatomic) MainViewPresenter *presenter;
 @property (strong, nonatomic) NSArray *items;
 
 @end
@@ -19,8 +18,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.presenter = [[MainViewPresenter alloc] init];
-    self.items = [self.presenter getItems];
+    self.items = [[NSArray alloc] initWithObjects:
+                  @"Triangle",
+                  @"Container",
+                  @"Box",
+                  nil];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"ID_CELL"];
 }
 
@@ -37,7 +39,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *name = [self.items objectAtIndex:indexPath.row];
-    OpenGLViewController *vc = [self.presenter getViewController:name];
+    OpenGLViewController *vc = [[OpenGLViewController alloc] initWithType:name];
     if (vc != nil) {
         [self.navigationController pushViewController:vc animated:YES];
     }

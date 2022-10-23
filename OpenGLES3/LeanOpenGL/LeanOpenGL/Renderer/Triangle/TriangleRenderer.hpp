@@ -8,14 +8,12 @@
 #ifndef ESRender_hpp
 #define ESRender_hpp
 
-#include <stdio.h>
-#include <memory>
+#include "BaseRenderer.hpp"
 
-class TriangleRenderer {
+class TriangleRenderer: public BaseRenderer {
 public:
     TriangleRenderer(const char *vertextPath, const char *fragmentPath);
     ~TriangleRenderer();
-
     int setupGL();
     void tearDownGL();
     void updateWindowSize(int width, int height);

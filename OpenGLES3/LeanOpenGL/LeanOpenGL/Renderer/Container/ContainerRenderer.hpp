@@ -8,10 +8,9 @@
 #ifndef ContainerRender_hpp
 #define ContainerRender_hpp
 
-#include <stdio.h>
-#include <memory>
+#include "BaseRenderer.hpp"
 
-class ContainerRenderer {
+class ContainerRenderer: public BaseRenderer {
 public:
     ContainerRenderer(const char *vertextPath, const char *fragmentPath);
     ~ContainerRenderer();

@@ -8,10 +8,6 @@
 #include "TriangleRenderer.hpp"
 #include "Shader.hpp"
 
-typedef struct {
-    GLuint programObject;
-} UserData;
-
 class TriangleRenderer::Impl {
 public:
     GLint _width;
@@ -113,11 +109,13 @@ private:
 };
 
 TriangleRenderer::TriangleRenderer(const char *vertextPath, const char *fragmentPath)
-    :m_pImpl(new Impl(vertextPath, fragmentPath)) {
-    
+    :BaseRenderer(vertextPath, fragmentPath),
+    m_pImpl(new Impl(vertextPath, fragmentPath)) {
 }
 
-TriangleRenderer::~TriangleRenderer() {}
+TriangleRenderer::~TriangleRenderer() {
+    printf("  TriangleRenderer::~TriangleRenderer() \n");
+}
 
 int TriangleRenderer::setupGL() {
     return m_pImpl->setupGL();

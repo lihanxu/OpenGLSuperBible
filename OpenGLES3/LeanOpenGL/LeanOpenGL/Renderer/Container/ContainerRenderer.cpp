@@ -1,11 +1,11 @@
 //
-//  BoxRenderer.cpp
+//  ContainerRenderer.cpp
 //  LeanOpenGL
 //
-//  Created by 李涵旭 on 2022/10/23.
+//  Created by 李涵旭 on 2022/10/20.
 //
 
-#include "BoxRenderer.hpp"
+#include "ContainerRenderer.hpp"
 #include "Shader.hpp"
 #include "stb_image.h"
 #include <iostream>
@@ -22,37 +22,22 @@ typedef struct {
     GLuint programObject;
 } UserData;
 
-class BoxRenderer::Impl {
+class ContainerRenderer::Impl {
 public:
     GLint _width;
     GLint _height;
-    float _time = 0.0f;
+    int _time = 0;
 private:
     Shader _shader;
-    GLuint _VAO, _VBO;
+    GLuint _VAO;
     GLuint _texture1;
     GLuint _texture2;
-    glm::vec3 _cubePositions[10] = {
-        glm::vec3( 0.0f,  0.0f,  0.0f),
-        glm::vec3( 2.0f,  5.0f, -15.0f),
-        glm::vec3(-1.5f, -2.2f, -2.5f),
-        glm::vec3(-3.8f, -2.0f, -12.3f),
-        glm::vec3( 2.4f, -0.4f, -3.5f),
-        glm::vec3(-1.7f,  3.0f, -7.5f),
-        glm::vec3( 1.3f, -2.0f, -2.5f),
-        glm::vec3( 1.5f,  2.0f, -2.5f),
-        glm::vec3( 1.5f,  0.2f, -1.5f),
-        glm::vec3(-1.3f,  1.0f, -1.5f)
-      };
 public:
     Impl(const char *vertextPath, const char *fragmentPath)
         :_shader(Shader(vertextPath, fragmentPath)) {
     }
     
-    ~Impl() {
-        glDeleteVertexArrays(1, &_VAO);
-        glDeleteBuffers(1, &_VBO);
-    }
+    ~Impl() {}
     
     int setupGL() {
         
@@ -84,8 +69,17 @@ public:
     
     void draw() {
         glViewport(0, 0, _width, _height);
-        glEnable(GL_DEPTH_TEST);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT);
+
+        _time++;
+        glm::mat4 trans = glm::mat4(1.0f);
+        trans = glm::translate(trans, glm::vec3(0.5, -0.5, 0.0));
+        trans = glm::rotate(trans, glm::radians((float)_time), glm::vec3(0.0, 0.0, 1.0));
+        
+        _shader.use();
+        
+        GLuint loc = glGetUniformLocation(_shader.ID, "transform");
+        glUniformMatrix4fv(loc, 1, GL_FALSE, glm::value_ptr(trans));
         
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, _texture1);
@@ -93,28 +87,15 @@ public:
         glBindTexture(GL_TEXTURE_2D, _texture2);
         
         glBindVertexArray(_VAO);
-        
-        _shader.use();
-        _time += 1.0/30.0;
-        
-        // 视图矩阵
-        glm::mat4 view = glm::mat4(1.0f);
-        view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
-        _shader.setMatrix4fv("view", glm::value_ptr(view));
-        // 透视矩阵
-        glm::mat4 projection = glm::mat4(1.0f);
-        projection = glm::perspective(glm::radians(45.0f), (float)_width/(float)_height, 0.1f, 100.0f);
-        _shader.setMatrix4fv("projection", glm::value_ptr(projection));
+/*
+ void glDrawElements(GLenum mode, GLsizei count, GLenum type, const GLvoid *indices);
 
-        for (unsigned int i = 0; i < 10; i++) {
-            // 模型矩阵
-            glm::mat4 model = glm::mat4(1.0f);
-            model = glm::translate(model, _cubePositions[i]);
-            model = glm::rotate(model, _time * glm::radians(55.0f), glm::vec3(1.0f, 0.3f, 0.5f));
-            _shader.setMatrix4fv("model", glm::value_ptr(model));
-            
-            glDrawArrays(GL_TRIANGLES, 0, 36);
-        }
+    mode: 第一个参数指定了我们绘制的模式。
+    count: 第二个参数是我们打算绘制顶点的个数，这里填6，也就是说我们一共需要绘制6个顶点。
+    type: 第三个参数是索引的类型，这里是GL_UNSIGNED_INT。
+    indices: 最后一个参数里我们可以指定 EBO 中的偏移量（ 或者传递一个索引数组，但是这是当你不在使用索引缓冲对象的时候 ），但是我们会在这里填写0。
+ */
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
     }
     
 private:
@@ -127,7 +108,7 @@ private:
         }
         unsigned char *data = stbi_load(filePath, &width, &height, &nrChannels, 0);
         if (!data) {
-            std::cout << "BoxRenderer.cpp: Failed to load texture" << std::endl;
+            std::cout << "ContainerRenderer.cpp: Failed to load texture" << std::endl;
             return 0;
         }
         
@@ -162,61 +143,37 @@ private:
     
     void genVAO() {
         float vertices[] = {
-            -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
-             0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
-             0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-             0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-            -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
-            -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
-
-            -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-             0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-             0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
-             0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
-            -0.5f,  0.5f,  0.5f,  0.0f, 1.0f,
-            -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-
-            -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-            -0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-            -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-            -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-            -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-            -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-
-             0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-             0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-             0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-             0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-             0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-             0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-
-            -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-             0.5f, -0.5f, -0.5f,  1.0f, 1.0f,
-             0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-             0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-            -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-            -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-
-            -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
-             0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-             0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-             0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-            -0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
-            -0.5f,  0.5f, -0.5f,  0.0f, 1.0f
+        //     ---- 位置 ----       ---- 颜色 ----     - 纹理坐标 -
+             0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f,   // 右上
+             0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f,   // 右下
+            -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f,   // 左下
+            -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f    // 左上
         };
-                
+        unsigned int indices[] = {
+            0, 1, 3, // first triangle
+            1, 2, 3  // second triangle
+        };
+        
+        GLuint VBO, VEO;
+        
         glGenVertexArrays(1, &_VAO);
-        glGenBuffers(1, &_VBO);
+        glGenBuffers(1, &VBO);
+        glGenBuffers(2, &VEO);
         
         glBindVertexArray(_VAO);
         
-        glBindBuffer(GL_ARRAY_BUFFER, _VBO);
+        glBindBuffer(GL_ARRAY_BUFFER, VBO);
         glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
         
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(GL_FLOAT), 0);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VEO);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+        
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GL_FLOAT), 0);
         glEnableVertexAttribArray(0);
-        glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(GL_FLOAT), (void *)(3 * sizeof(GL_FLOAT)));
+        glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GL_FLOAT), (void *)(3 * sizeof(GL_FLOAT)));
         glEnableVertexAttribArray(1);
+        glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GL_FLOAT), (void *)(6 * sizeof(GL_FLOAT)));
+        glEnableVertexAttribArray(2);
         
         glBindBuffer(GL_ARRAY_BUFFER, 0);
         glBindVertexArray(0);
@@ -224,26 +181,29 @@ private:
     
 };
 
-BoxRenderer::BoxRenderer(const char *vertextPath, const char *fragmentPath)
-    :m_pImpl(new Impl(vertextPath, fragmentPath)) {
+ContainerRenderer::ContainerRenderer(const char *vertextPath, const char *fragmentPath)
+    :BaseRenderer(vertextPath, fragmentPath),
+    m_pImpl(new Impl(vertextPath, fragmentPath)) {
     
 }
 
-BoxRenderer::~BoxRenderer() {}
+ContainerRenderer::~ContainerRenderer() {
+    printf("  ContainerRenderer::~ContainerRenderer() \n");
+}
 
-int BoxRenderer::setupGL() {
+int ContainerRenderer::setupGL() {
     return m_pImpl->setupGL();
 }
 
-void BoxRenderer::tearDownGL() {
+void ContainerRenderer::tearDownGL() {
     m_pImpl->tearDownGL();
 }
 
-void BoxRenderer::updateWindowSize(int width, int height) {
+void ContainerRenderer::updateWindowSize(int width, int height) {
     m_pImpl->updateWindowSize(width, height);
 }
 
-void BoxRenderer::draw() {
+void ContainerRenderer::draw() {
     m_pImpl->draw();
 }
 

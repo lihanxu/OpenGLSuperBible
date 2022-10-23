@@ -8,10 +8,9 @@
 #ifndef BoxRenderer_hpp
 #define BoxRenderer_hpp
 
-#include <stdio.h>
-#include <memory>
+#include "BaseRenderer.hpp"
 
-class BoxRenderer {
+class BoxRenderer: public BaseRenderer {
 public:
     BoxRenderer(const char *vertextPath, const char *fragmentPath);
     ~BoxRenderer();

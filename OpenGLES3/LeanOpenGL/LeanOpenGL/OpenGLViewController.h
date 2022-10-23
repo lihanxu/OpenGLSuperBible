@@ -11,10 +11,7 @@
 
 @property (nonatomic, strong) EAGLContext *context;
 
-/// 配置OpenGL 环境
-- (void)setupGL;
-
-/// 释放OpenGL环境
-- (void)tearDownGL;
+/// 根据名字配置不同的 OpenGL 环境
+- (instancetype)initWithType:(NSString *)type;
 
 @end
