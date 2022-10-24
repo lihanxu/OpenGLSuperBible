@@ -15,6 +15,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)tearDownGL;
 - (void)drawInWidth:(NSInteger)width height:(NSInteger)height;
 
+#pragma mark - Move
+- (void)moveX:(float)x Y:(float)y;
+- (void)moveRadian:(float)radian;
+- (void)zoom:(float)scale;
+
 @end
 
 NS_ASSUME_NONNULL_END

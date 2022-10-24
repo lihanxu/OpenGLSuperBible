@@ -20,6 +20,10 @@ public:
     virtual void tearDownGL() = 0;
     virtual void updateWindowSize(int width, int height) = 0;
     virtual void draw() = 0;
+    
+    void move(float front, float right) {};
+    void zoom(float scale) {};
+    void move(float radian) {};
 };
 
 #endif /* BaseRenderer_hpp */

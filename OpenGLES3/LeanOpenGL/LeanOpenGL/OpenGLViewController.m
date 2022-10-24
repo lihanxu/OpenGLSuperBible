@@ -10,8 +10,13 @@
 
 @interface OpenGLViewController ()
 
+@property (strong, nonatomic) UIView *grView;
+
 @property (strong, nonatomic) NSString *glType;
 @property (strong, nonatomic) RendererPresenter *presenter;
+
+@property (assign, nonatomic) BOOL isMoving;
+@property (assign, nonatomic) CGPoint startPoint;
 
 @end
 
@@ -32,6 +37,33 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.grView = [[UIView alloc] init];
+    [self.view addSubview:self.grView];
+    
+    [self setupGestureRecognizer];
+    [self setupViewContext];
+    
+    self.presenter = [[RendererPresenter alloc] init];
+    [self setupGL];
+}
+
+/// 添加手势响应
+
+- (void)setupGestureRecognizer {
+    self.grView.translatesAutoresizingMaskIntoConstraints=NO;
+
+    UIView *view = self.grView;
+    NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[view]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(view)];
+    NSArray *constraints2 = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[view]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(view)];
+    [self.view addConstraints:constraints];
+    [self.view addConstraints:constraints2];
+    
+    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
+    [self.grView addGestureRecognizer:panGestureRecognizer];
+}
+
+/// 初始化context
+- (void)setupViewContext {
     self.context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES3];
     if (self.context == nil) {
         NSLog(@"Failed to create ES context!!");
@@ -39,9 +71,6 @@
     GLKView *view = (GLKView *)self.view;
     view.context = self.context;
     view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
-    
-    self.presenter = [[RendererPresenter alloc] init];
-    [self setupGL];
 }
 
 /// 清除context
@@ -66,6 +95,59 @@
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
     [self.presenter drawInWidth:view.drawableWidth height:view.drawableHeight];
+}
+
+#pragma mark - GestureRecognizer
+- (void)handlePan:(UIPanGestureRecognizer*) recognizer {
+    NSLog(@"%s", __func__);
+    switch (recognizer.state) {
+        case UIGestureRecognizerStateBegan:
+        {
+            CGPoint locPoint = [recognizer locationInView:self.grView];
+            if (locPoint.x < self.view.bounds.size.width / 2) {
+                self.startPoint = locPoint;
+                self.isMoving = true;
+            } else {
+                self.isMoving = false;
+            }
+            break;
+        }
+        case UIGestureRecognizerStateChanged:
+        {
+            if (self.isMoving) {
+                float radian = 0.0;
+                CGPoint locPoint = [recognizer locationInView:self.grView];
+                float offsetX = locPoint.x - self.startPoint.x;
+                float offsetY = self.startPoint.y - locPoint.y;
+                if (offsetX > 0.0) {
+                    if (offsetY > 0.0) {
+                        radian = atan2f(offsetX, offsetY);
+                    } else {
+                        radian = M_PI - atan2f(offsetX, -offsetY);
+                    }
+                } else {
+                    if (offsetY > 0.0) {
+                        radian = 2 * M_PI - atan2f(-offsetX, offsetY);
+                    } else {
+                        radian = M_PI + atan2f(-offsetX, -offsetY);
+                    }
+                }
+                NSLog(@"radian: %f", radian);
+                [self.presenter moveRadian:radian];
+                
+                
+//                CGPoint transLation = [recognizer translationInView:self.grView];
+//                NSLog(@"translation: %@", NSStringFromCGPoint(transLation));
+//                [self.presenter moveX:transLation.x Y:transLation.y];
+            }
+            break;;
+        }
+        default:
+            self.isMoving = false;
+            [self.presenter moveRadian:0];
+            break;
+    }
+    [recognizer setTranslation:CGPointZero inView:self.view];
 }
 
 @end

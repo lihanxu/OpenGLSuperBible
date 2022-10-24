@@ -19,6 +19,10 @@ public:
     void tearDownGL();
     void updateWindowSize(int width, int height);
     void draw();
+    
+    void move(float radian);
+    void move(float front, float right);
+    void zoom(float scale);
 
 private:
     class Impl;

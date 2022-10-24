@@ -6,13 +6,16 @@
 //
 
 #include "BoxRenderer.hpp"
-#include "Shader.hpp"
 #include "stb_image.h"
+#include "TimeTool.hpp"
+#include "Shader.hpp"
+#include "Camera.hpp"
 #include <iostream>
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform1.hpp>
 #include <glm/gtc/type_ptr.hpp>
+
 
 extern "C" {
 #include "FileWrapper.h"
@@ -26,9 +29,14 @@ class BoxRenderer::Impl {
 public:
     GLint _width;
     GLint _height;
-    float _time = 0.0f;
+    long _time;
+    long _deltaTime;
+    long _lastFrame;
 private:
     Shader _shader;
+    Camera _camera;
+    float _moveRadian;
+    
     GLuint _VAO, _VBO;
     GLuint _texture1;
     GLuint _texture2;
@@ -46,7 +54,12 @@ private:
       };
 public:
     Impl(const char *vertextPath, const char *fragmentPath)
-        :_shader(Shader(vertextPath, fragmentPath)) {
+    :_shader(Shader(vertextPath, fragmentPath)),
+    _camera(glm::vec3(0.0f, 0.0f, 3.0f)) {
+        _time = 0.0;
+        _deltaTime = 0.0;
+        _lastFrame = 0.0;
+        _moveRadian = 0.0;
     }
     
     ~Impl() {
@@ -82,13 +95,42 @@ public:
         _width = width;
         _height = height;
         glViewport(0, 0, _width, _height);
-        // 透视矩阵
-        glm::mat4 projection = glm::mat4(1.0f);
-        projection = glm::perspective(glm::radians(45.0f), (float)_width/(float)_height, 0.1f, 100.0f);
-        _shader.setMatrix4fv("projection", glm::value_ptr(projection));
+    }
+    
+    void move(float front, float right) {
+        _camera.ProcessKeyboard(Camera::FORWARD, -front / 100.0);
+        _camera.ProcessKeyboard(Camera::RIGHT, -right / 100.0);
+    }
+    
+    void move(float radian) {
+        _moveRadian = radian;
+        if (_moveRadian == 0) {
+            _deltaTime = 0;
+            _lastFrame = 0;
+        }
+    }
+    
+    void zoom(float scale) {
+        
     }
     
     void draw() {
+        if (_moveRadian != 0) {
+            long currentFrame = static_cast<long>(getCurrentTime());
+            if (_lastFrame == 0) {
+                _deltaTime = currentFrame - _lastFrame;
+                _lastFrame = currentFrame;
+            } else {
+                _deltaTime = currentFrame - _lastFrame;
+                _lastFrame = currentFrame;
+                
+                _camera.ProcessKeyboard2(Camera::FORWARD, _deltaTime / 1000.0 * cos(_moveRadian) );
+                _camera.ProcessKeyboard2(Camera::RIGHT, -_deltaTime / 1000.0 * sin(_moveRadian) );
+            }
+            
+        }
+//        std::cout<< _deltaTime << std::endl;
+        
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         
         glActiveTexture(GL_TEXTURE0);
@@ -102,10 +144,19 @@ public:
         _time += 1.0/30.0;
         
         // 视图矩阵:lookAt(相机位置，目标位置，上向量)
-        float radius = 10.0f;
-        float camX = sin(_time) * radius;
-        float camZ = cos(_time) * radius;
-        glm::mat4 view = glm::lookAt(glm::vec3(camX, 0.0f, camZ), glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.0f, 1.0f, 0.0f));
+//        float radius = 10.0f;
+//        float camX = sin(_time) * radius;
+//        float camZ = cos(_time) * radius;
+//        glm::mat4 view = glm::lookAt(glm::vec3(camX, 0.0f, camZ), glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.0f, 1.0f, 0.0f));
+//        _shader.setMatrix4fv("view", glm::value_ptr(view));
+        
+        // 透视矩阵
+        glm::mat4 projection = glm::mat4(1.0f);
+        projection = glm::perspective(glm::radians(_camera._zoom), (float)_width/(float)_height, 0.1f, 100.0f);
+        _shader.setMatrix4fv("projection", glm::value_ptr(projection));
+        
+        // 视图矩阵
+        glm::mat4 view = _camera.GetViewMatrix();
         _shader.setMatrix4fv("view", glm::value_ptr(view));
 
         for (unsigned int i = 0; i < 10; i++) {
@@ -252,3 +303,15 @@ void BoxRenderer::draw() {
     m_pImpl->draw();
 }
 
+void BoxRenderer::move(float front, float right) {
+    m_pImpl->move(front, right);
+}
+
+void BoxRenderer::move(float radian) {
+    m_pImpl->move(radian);
+}
+
+
+void BoxRenderer::zoom(float scale) {
+    m_pImpl->zoom(scale);
+}

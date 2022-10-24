@@ -69,4 +69,20 @@
     _renderer->draw();
 }
 
+#pragma mark - Move
+- (void)moveX:(float)x Y:(float)y {
+    BoxRenderer *renderer = (BoxRenderer*)_renderer;
+    renderer->move(y, x);
+}
+
+- (void)moveRadian:(float)radian {
+    BoxRenderer *renderer = (BoxRenderer*)_renderer;
+    renderer->move(radian);
+}
+
+- (void)zoom:(float)scale {
+    BoxRenderer *renderer = (BoxRenderer*)_renderer;
+    renderer->zoom(scale);
+}
+
 @end
