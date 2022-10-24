@@ -10,7 +10,14 @@
 
 #include <stdio.h>
 #include <string>
-#include "esUtil.h"
+
+#ifdef __APPLE__
+#include <OpenGLES/ES3/gl.h>
+#else
+#include <GLES3/gl3.h>
+#include <EGL/egl.h>
+#include <EGL/eglext.h>
+#endif
 
 class Shader {
     
@@ -30,6 +37,12 @@ public:
     void setFloat3(const std::string &name, float value1, float value2, float value3) const;
     void setFloat4(const std::string &name, float value1, float value2, float value3, float value4) const;
     void setMatrix4fv(const std::string &name, float *value) const;
+    
+private:
+    GLuint loadShader (GLenum type, const char *shaderSrc);
+    GLuint loadProgram (const char *vertShaderSrc, const char *fragShaderSrc);
+    void logMessage (const char *formatStr, ...);
+
 };
 
 #endif /* Shader_hpp */

@@ -479,8 +479,6 @@
 		601726D6290147E800C8CC8B /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				601726D7290147E800C8CC8B /* Shader.cpp */,
-				601726D8290147E800C8CC8B /* Shader.hpp */,
 				EDC76C282901A1A9005BDC14 /* stb_image.h */,
 				EDC76C292901A1EE005BDC14 /* stb_image_cpp.cpp */,
 			);
@@ -930,6 +928,8 @@
 		ED18D83529053C95000FBE18 /* Renderer */ = {
 			isa = PBXGroup;
 			children = (
+				601726D7290147E800C8CC8B /* Shader.cpp */,
+				601726D8290147E800C8CC8B /* Shader.hpp */,
 				ED18D823290514D3000FBE18 /* Box */,
 				ED47533D2902F3980001710C /* Container */,
 				601726EC2901483A00C8CC8B /* Triangle */,
