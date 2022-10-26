@@ -10,12 +10,18 @@
 
 @interface OpenGLViewController ()
 
+typedef NS_ENUM(NSInteger, GRAction) {
+    GRActionNone = 0,
+    GRActionMoving = 1,
+    GRActionRotate = 2
+};
+
 @property (strong, nonatomic) UIView *grView;
 
 @property (strong, nonatomic) NSString *glType;
 @property (strong, nonatomic) RendererPresenter *presenter;
 
-@property (assign, nonatomic) BOOL isMoving;
+@property (assign, nonatomic) GRAction grAction;
 @property (assign, nonatomic) CGPoint startPoint;
 
 @end
@@ -106,45 +112,47 @@
             CGPoint locPoint = [recognizer locationInView:self.grView];
             if (locPoint.x < self.view.bounds.size.width / 2) {
                 self.startPoint = locPoint;
-                self.isMoving = true;
+                self.grAction = GRActionMoving;
             } else {
-                self.isMoving = false;
+                self.grAction = GRActionRotate;
             }
             break;
         }
         case UIGestureRecognizerStateChanged:
         {
-            if (self.isMoving) {
-                float radian = 0.0;
-                CGPoint locPoint = [recognizer locationInView:self.grView];
-                float offsetX = locPoint.x - self.startPoint.x;
-                float offsetY = self.startPoint.y - locPoint.y;
-                if (offsetX > 0.0) {
-                    if (offsetY > 0.0) {
-                        radian = atan2f(offsetX, offsetY);
-                    } else {
-                        radian = M_PI - atan2f(offsetX, -offsetY);
-                    }
-                } else {
-                    if (offsetY > 0.0) {
-                        radian = 2 * M_PI - atan2f(-offsetX, offsetY);
-                    } else {
-                        radian = M_PI + atan2f(-offsetX, -offsetY);
-                    }
-                }
-                NSLog(@"radian: %f", radian);
-                [self.presenter moveRadian:radian];
+//            if (self.grAction == GRActionMoving) {
+//                float radian = 0.0;
+//                CGPoint locPoint = [recognizer locationInView:self.grView];
+//                float offsetX = locPoint.x - self.startPoint.x;
+//                float offsetY = self.startPoint.y - locPoint.y;
+//                if (offsetX > 0.0) {
+//                    if (offsetY > 0.0) {
+//                        radian = atan2f(offsetX, offsetY);
+//                    } else {
+//                        radian = M_PI - atan2f(offsetX, -offsetY);
+//                    }
+//                } else {
+//                    if (offsetY > 0.0) {
+//                        radian = 2 * M_PI - atan2f(-offsetX, offsetY);
+//                    } else {
+//                        radian = M_PI + atan2f(-offsetX, -offsetY);
+//                    }
+//                }
+//                NSLog(@"radian: %f", radian);
+//                [self.presenter moveRadian:radian];
+//            }
                 
-                
-//                CGPoint transLation = [recognizer translationInView:self.grView];
-//                NSLog(@"translation: %@", NSStringFromCGPoint(transLation));
-//                [self.presenter moveX:transLation.x Y:transLation.y];
+            CGPoint transLation = [recognizer translationInView:self.grView];
+            NSLog(@"translation: %@", NSStringFromCGPoint(transLation));
+            if (self.grAction == GRActionMoving) {
+                [self.presenter moveX:transLation.x Y:transLation.y];
+            } else if (self.grAction == GRActionRotate) {
+                [self.presenter rotateX:transLation.x Y:-transLation.y];
             }
             break;;
         }
         default:
-            self.isMoving = false;
-            [self.presenter moveRadian:0];
+            self.grAction = GRActionNone;
             break;
     }
     [recognizer setTranslation:CGPointZero inView:self.view];

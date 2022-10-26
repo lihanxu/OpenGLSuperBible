@@ -18,9 +18,6 @@ extern "C" {
 #include "FileWrapper.h"
 }
 
-typedef struct {
-    GLuint programObject;
-} UserData;
 
 class ContainerRenderer::Impl {
 public:

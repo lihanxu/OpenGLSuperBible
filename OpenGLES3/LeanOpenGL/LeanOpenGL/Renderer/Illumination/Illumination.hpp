@@ -1,19 +1,19 @@
 //
-//  BoxRenderer.hpp
+//  Illumination.hpp
 //  LeanOpenGL
 //
-//  Created by 李涵旭 on 2022/10/23.
+//  Created by 李涵旭 on 2022/10/26.
 //
 
-#ifndef BoxRenderer_hpp
-#define BoxRenderer_hpp
+#ifndef Illumination_hpp
+#define Illumination_hpp
 
 #include "BaseRenderer.hpp"
 
-class BoxRenderer: public BaseRenderer {
+class Illumination: public BaseRenderer {
 public:
-    BoxRenderer(const char *vertextPath, const char *fragmentPath);
-    ~BoxRenderer();
+    Illumination(const char *vertextPath, const char *fragmentPath);
+    ~Illumination();
 
     int setupGL();
     void tearDownGL();
@@ -30,4 +30,4 @@ private:
     std::unique_ptr<Impl> m_pImpl;
 };
 
-#endif /* BoxRenderer_hpp */
+#endif /* Illumination_hpp */

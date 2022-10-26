@@ -12,6 +12,10 @@
 
 using namespace std;
 
+Shader::Shader() {
+    ID = 0;
+}
+
 Shader::Shader(const char *vertextPath, const char *fragmentPath) {
     string vertexCode;
     string fragmentCode;
@@ -65,6 +69,10 @@ void Shader::setFloat3(const std::string &name, float value1, float value2, floa
 
 void Shader::setFloat4(const std::string &name, float value1, float value2, float value3, float value4) const {
     glUniform4f(glGetUniformLocation(ID, name.c_str()), value1, value2, value3, value4);
+}
+
+void Shader::setVec3(const std::string &name, float value1, float value2, float value3) const {
+    setFloat3(name, value1, value2, value3);
 }
 
 void Shader::setMatrix4fv(const std::string &name, float *value) const {

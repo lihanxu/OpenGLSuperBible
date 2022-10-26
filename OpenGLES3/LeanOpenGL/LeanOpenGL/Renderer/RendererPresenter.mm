@@ -10,6 +10,7 @@
 #include "Triangle/TriangleRenderer.hpp"
 #include "Container/ContainerRenderer.hpp"
 #include "Box/BoxRenderer.hpp"
+#include "Illumination/Illumination.hpp"
 
 @interface RendererPresenter () {
     BaseRenderer *_renderer;
@@ -39,6 +40,11 @@
         NSString *fPath = [[NSBundle mainBundle] pathForResource:@"Box" ofType:@"fs"];
         _renderer = new BoxRenderer([vPath cStringUsingEncoding:NSUTF8StringEncoding], [fPath cStringUsingEncoding:NSUTF8StringEncoding]);
         
+    } else if ([name isEqualToString:@"Illumination"]) {
+        NSString *vPath = [[NSBundle mainBundle] pathForResource:@"Illumination" ofType:@"vs"];
+        NSString *fPath = [[NSBundle mainBundle] pathForResource:@"Illumination" ofType:@"fs"];
+        _renderer = new Illumination([vPath cStringUsingEncoding:NSUTF8StringEncoding], [fPath cStringUsingEncoding:NSUTF8StringEncoding]);
+        
     } else {
         return;
     }
@@ -52,11 +58,13 @@
     }
     _renderer->tearDownGL();
     if ([self.name isEqualToString:@"Triangle"]) {
-        delete (TriangleRenderer*)_renderer;
+        delete (TriangleRenderer *)_renderer;
     } else if ([self.name isEqualToString:@"Container"]) {
-        delete (ContainerRenderer*)_renderer;
+        delete (ContainerRenderer *)_renderer;
     } else if ([self.name isEqualToString:@"Box"]) {
-        delete (BoxRenderer*)_renderer;
+        delete (BoxRenderer *)_renderer;
+    } else if ([self.name isEqualToString:@"Illumination"]) {
+        delete (Illumination *)_renderer;
     }
 }
 
@@ -71,18 +79,43 @@
 
 #pragma mark - Move
 - (void)moveX:(float)x Y:(float)y {
-    BoxRenderer *renderer = (BoxRenderer*)_renderer;
-    renderer->move(y, x);
+    if ([self.name isEqualToString:@"Box"]) {
+        BoxRenderer *renderer = (BoxRenderer *)_renderer;
+        renderer->move(y, x);
+    } else if ([self.name isEqualToString:@"Illumination"]) {
+        Illumination *renderer = (Illumination *)_renderer;
+        renderer->move(y, x);
+    }
 }
 
 - (void)moveRadian:(float)radian {
-    BoxRenderer *renderer = (BoxRenderer*)_renderer;
-    renderer->move(radian);
+    if ([self.name isEqualToString:@"Box"]) {
+        BoxRenderer *renderer = (BoxRenderer *)_renderer;
+        renderer->move(radian);
+    } else if ([self.name isEqualToString:@"Illumination"]) {
+        Illumination *renderer = (Illumination *)_renderer;
+        renderer->move(radian);
+    }
 }
 
 - (void)zoom:(float)scale {
-    BoxRenderer *renderer = (BoxRenderer*)_renderer;
-    renderer->zoom(scale);
+    if ([self.name isEqualToString:@"Box"]) {
+        BoxRenderer *renderer = (BoxRenderer *)_renderer;
+        renderer->zoom(scale);
+    } else if ([self.name isEqualToString:@"Illumination"]) {
+        Illumination *renderer = (Illumination *)_renderer;
+        renderer->zoom(scale);
+    }
+}
+    
+- (void)rotateX:(float)x Y:(float)y {
+    if ([self.name isEqualToString:@"Box"]) {
+        BoxRenderer *renderer = (BoxRenderer *)_renderer;
+        renderer->rotate(x, y);
+    } else if ([self.name isEqualToString:@"Illumination"]) {
+        Illumination *renderer = (Illumination *)_renderer;
+        renderer->rotate(x, y);
+    }
 }
 
 @end

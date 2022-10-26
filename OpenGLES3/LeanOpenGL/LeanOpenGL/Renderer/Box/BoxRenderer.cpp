@@ -21,17 +21,13 @@ extern "C" {
 #include "FileWrapper.h"
 }
 
-typedef struct {
-    GLuint programObject;
-} UserData;
-
 class BoxRenderer::Impl {
 public:
     GLint _width;
     GLint _height;
-    long _time;
-    long _deltaTime;
-    long _lastFrame;
+    float _time;
+    double _deltaTime;
+    double _lastFrame;
 private:
     Shader _shader;
     Camera _camera;
@@ -114,6 +110,10 @@ public:
         
     }
     
+    void rotate(float x, float y){
+        
+    }
+
     void draw() {
         if (_moveRadian != 0) {
             long currentFrame = static_cast<long>(getCurrentTime());
@@ -314,4 +314,8 @@ void BoxRenderer::move(float radian) {
 
 void BoxRenderer::zoom(float scale) {
     m_pImpl->zoom(scale);
+}
+
+void BoxRenderer::rotate(float x, float y) {
+    m_pImpl->rotate(x, y);
 }

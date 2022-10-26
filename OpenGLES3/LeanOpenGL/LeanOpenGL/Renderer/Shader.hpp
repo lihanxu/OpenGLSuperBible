@@ -22,9 +22,10 @@
 class Shader {
     
 public:
+    Shader();
     /// 构造器读取并构造着色器
     Shader(const char *vertextPath, const char *fragmentPath);
-    
+
     /// program id
     unsigned int ID;
     
@@ -36,6 +37,7 @@ public:
     void setFloat(const std::string &name, float value) const;
     void setFloat3(const std::string &name, float value1, float value2, float value3) const;
     void setFloat4(const std::string &name, float value1, float value2, float value3, float value4) const;
+    void setVec3(const std::string &name, float value1, float value2, float value3) const;
     void setMatrix4fv(const std::string &name, float *value) const;
     
 private:

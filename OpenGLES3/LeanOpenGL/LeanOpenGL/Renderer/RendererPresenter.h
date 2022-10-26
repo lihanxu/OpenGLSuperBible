@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)moveX:(float)x Y:(float)y;
 - (void)moveRadian:(float)radian;
 - (void)zoom:(float)scale;
+- (void)rotateX:(float)x Y:(float)y;
 
 @end
 

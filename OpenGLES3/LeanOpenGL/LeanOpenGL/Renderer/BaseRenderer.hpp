@@ -24,6 +24,7 @@ public:
     void move(float front, float right) {};
     void zoom(float scale) {};
     void move(float radian) {};
+    void rotate(float x, float y) {};
 };
 
 #endif /* BaseRenderer_hpp */

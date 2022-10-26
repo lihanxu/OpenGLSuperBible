@@ -22,6 +22,7 @@
                   @"Triangle",
                   @"Container",
                   @"Box",
+                  @"Illumination",
                   nil];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"ID_CELL"];
 }
