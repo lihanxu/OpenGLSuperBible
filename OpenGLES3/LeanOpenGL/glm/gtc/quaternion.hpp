@@ -170,4 +170,4 @@ namespace glm
 	/// @}
 } //namespace glm
 
-#include "quaternion.inl"
+#include "quaternion1.inl"

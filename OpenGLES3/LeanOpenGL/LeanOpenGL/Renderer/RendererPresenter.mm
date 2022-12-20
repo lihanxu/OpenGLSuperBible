@@ -11,6 +11,7 @@
 #include "Container/ContainerRenderer.hpp"
 #include "Box/BoxRenderer.hpp"
 #include "Illumination/Illumination.hpp"
+#include "Nanosuit/Nanosuit.hpp"
 
 @interface RendererPresenter () {
     BaseRenderer *_renderer;
@@ -45,6 +46,11 @@
         NSString *fPath = [[NSBundle mainBundle] pathForResource:@"Illumination" ofType:@"fs"];
         _renderer = new Illumination([vPath cStringUsingEncoding:NSUTF8StringEncoding], [fPath cStringUsingEncoding:NSUTF8StringEncoding]);
         
+    } else if ([name isEqualToString:@"Nanosuit"]) {
+        NSString *vPath = [[NSBundle mainBundle] pathForResource:@"Nanosuit" ofType:@"vs"];
+        NSString *fPath = [[NSBundle mainBundle] pathForResource:@"Nanosuit" ofType:@"fs"];
+        _renderer = new Nanosuit([vPath cStringUsingEncoding:NSUTF8StringEncoding], [fPath cStringUsingEncoding:NSUTF8StringEncoding]);
+        
     } else {
         return;
     }
@@ -65,6 +71,8 @@
         delete (BoxRenderer *)_renderer;
     } else if ([self.name isEqualToString:@"Illumination"]) {
         delete (Illumination *)_renderer;
+    } else if ([self.name isEqualToString:@"Nanosuit"]) {
+        delete (Nanosuit *)_renderer;
     }
 }
 
