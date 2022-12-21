@@ -24,6 +24,7 @@
                   @"Box",
                   @"Illumination",
                   @"Nanosuit",
+                  @"Breakout",
                   nil];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"ID_CELL"];
 }

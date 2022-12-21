@@ -13,6 +13,7 @@
 
 class BaseRenderer {
 public:
+    BaseRenderer() {};
     BaseRenderer(const char *vertextPath, const char *fragmentPath) {};
     ~BaseRenderer() {};
 

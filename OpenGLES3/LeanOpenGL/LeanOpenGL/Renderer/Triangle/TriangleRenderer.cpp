@@ -97,9 +97,9 @@ private:
     stride: 第五个参数叫做步长( Stride )，它告诉我们在连续的顶点属性组之间的间隔。由于下个组位置数据在3个 float 之后，我们把步长设置为3 * sizeof(float) 。 要注意的是由于我们知道这个数组是紧密排列的（ 在两个顶点属性之间没有空隙 ）我们也可以设置为0来让 OpenGL 决定具体步长是多少（ 只有当数值是紧密排列时才可用 ）。 一旦我们有更多的顶点属性 ，我们就必须更小心地定义每个顶点属性之间的间隔 ，我们在后面会看到更多的例子（ 译注: 这个参数的意思简单说就是从这个属性第二次出现的地方到整个数组0位置之间有多少字节 ）。
     ptr: 最后一个参数的类型是 void* ，所以需要我们进行这个奇怪的强制类型转换。它表示位置数据在缓冲中起始位置的偏移量 ( Offset ) 。由于位置数据在数组的开头，所以这里是0。我们会在后面详细解释这个参数。
 */
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GL_FLOAT), 0);
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), 0);
         glEnableVertexAttribArray(0);
-        glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GL_FLOAT), (void *)(3 * sizeof(GL_FLOAT)));
+        glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void *)(3 * sizeof(GL_FLOAT)));
         glEnableVertexAttribArray(1);
         
         glBindBuffer(GL_ARRAY_BUFFER, 0);

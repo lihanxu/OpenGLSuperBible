@@ -193,6 +193,13 @@
 		EDDCB6F2294F676C0086A221 /* rock.obj in Resources */ = {isa = PBXBuildFile; fileRef = EDDCB6D6294F676C0086A221 /* rock.obj */; };
 		EDDCB6F3294F676C0086A221 /* rock.png in Resources */ = {isa = PBXBuildFile; fileRef = EDDCB6D7294F676C0086A221 /* rock.png */; };
 		EDDCB6F4294F676C0086A221 /* rock.mtl in Resources */ = {isa = PBXBuildFile; fileRef = EDDCB6D8294F676C0086A221 /* rock.mtl */; };
+		EDDCB6F82951FBD60086A221 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EDDCB6F62951FBD60086A221 /* Game.cpp */; };
+		EDDCB6FB2951FDCF0086A221 /* Texture2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EDDCB6F92951FDCF0086A221 /* Texture2D.cpp */; };
+		EDDCB6FE2951FE8E0086A221 /* ResourceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EDDCB6FC2951FE8E0086A221 /* ResourceManager.cpp */; };
+		EDDCB7012952038C0086A221 /* Breakout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EDDCB6FF2952038C0086A221 /* Breakout.cpp */; };
+		EDDCB704295207FA0086A221 /* SpriteRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EDDCB702295207FA0086A221 /* SpriteRenderer.cpp */; };
+		EDDCB70829520C380086A221 /* sprite.vs in Resources */ = {isa = PBXBuildFile; fileRef = EDDCB70629520C380086A221 /* sprite.vs */; };
+		EDDCB70929520C380086A221 /* sprite.fs in Resources */ = {isa = PBXBuildFile; fileRef = EDDCB70729520C380086A221 /* sprite.fs */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -661,6 +668,18 @@
 		EDDCB6D6294F676C0086A221 /* rock.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rock.obj; sourceTree = "<group>"; };
 		EDDCB6D7294F676C0086A221 /* rock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rock.png; sourceTree = "<group>"; };
 		EDDCB6D8294F676C0086A221 /* rock.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rock.mtl; sourceTree = "<group>"; };
+		EDDCB6F62951FBD60086A221 /* Game.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
+		EDDCB6F72951FBD60086A221 /* Game.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Game.hpp; sourceTree = "<group>"; };
+		EDDCB6F92951FDCF0086A221 /* Texture2D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Texture2D.cpp; sourceTree = "<group>"; };
+		EDDCB6FA2951FDCF0086A221 /* Texture2D.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Texture2D.hpp; sourceTree = "<group>"; };
+		EDDCB6FC2951FE8E0086A221 /* ResourceManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ResourceManager.cpp; sourceTree = "<group>"; };
+		EDDCB6FD2951FE8E0086A221 /* ResourceManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ResourceManager.hpp; sourceTree = "<group>"; };
+		EDDCB6FF2952038C0086A221 /* Breakout.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Breakout.cpp; sourceTree = "<group>"; };
+		EDDCB7002952038C0086A221 /* Breakout.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Breakout.hpp; sourceTree = "<group>"; };
+		EDDCB702295207FA0086A221 /* SpriteRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SpriteRenderer.cpp; sourceTree = "<group>"; };
+		EDDCB703295207FA0086A221 /* SpriteRenderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SpriteRenderer.hpp; sourceTree = "<group>"; };
+		EDDCB70629520C380086A221 /* sprite.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = sprite.vs; sourceTree = "<group>"; };
+		EDDCB70729520C380086A221 /* sprite.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = sprite.fs; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1153,6 +1172,13 @@
 				601726D8290147E800C8CC8B /* Shader.hpp */,
 				ED18D8362906C1B8000FBE18 /* Camera.cpp */,
 				ED18D8372906C1B8000FBE18 /* Camera.hpp */,
+				EDDCB6F92951FDCF0086A221 /* Texture2D.cpp */,
+				EDDCB6FA2951FDCF0086A221 /* Texture2D.hpp */,
+				EDDCB702295207FA0086A221 /* SpriteRenderer.cpp */,
+				EDDCB703295207FA0086A221 /* SpriteRenderer.hpp */,
+				EDDCB6FC2951FE8E0086A221 /* ResourceManager.cpp */,
+				EDDCB6FD2951FE8E0086A221 /* ResourceManager.hpp */,
+				EDDCB6F52951FBB10086A221 /* Breakout */,
 				EDDCB66B294F587F0086A221 /* Nanosuit */,
 				ED76E8FD2909615A0006269B /* Illumination */,
 				ED18D823290514D3000FBE18 /* Box */,
@@ -1345,8 +1371,8 @@
 		EDDCB66F294F58A40086A221 /* shader */ = {
 			isa = PBXGroup;
 			children = (
-				EDDCB670294F5AA10086A221 /* Nanosuit.fs */,
 				EDDCB671294F5AA10086A221 /* Nanosuit.vs */,
+				EDDCB670294F5AA10086A221 /* Nanosuit.fs */,
 			);
 			path = shader;
 			sourceTree = "<group>";
@@ -1462,6 +1488,27 @@
 			path = rock;
 			sourceTree = "<group>";
 		};
+		EDDCB6F52951FBB10086A221 /* Breakout */ = {
+			isa = PBXGroup;
+			children = (
+				EDDCB70529520C380086A221 /* shader */,
+				EDDCB6F62951FBD60086A221 /* Game.cpp */,
+				EDDCB6F72951FBD60086A221 /* Game.hpp */,
+				EDDCB6FF2952038C0086A221 /* Breakout.cpp */,
+				EDDCB7002952038C0086A221 /* Breakout.hpp */,
+			);
+			path = Breakout;
+			sourceTree = "<group>";
+		};
+		EDDCB70529520C380086A221 /* shader */ = {
+			isa = PBXGroup;
+			children = (
+				EDDCB70629520C380086A221 /* sprite.vs */,
+				EDDCB70729520C380086A221 /* sprite.fs */,
+			);
+			path = shader;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1547,6 +1594,7 @@
 				EDDCB6B0294F619E0086A221 /* helmet_showroom_spec.png in Resources */,
 				EDDCB6DB294F676C0086A221 /* cyborg.blend in Resources */,
 				EDDCB6F2294F676C0086A221 /* rock.obj in Resources */,
+				EDDCB70929520C380086A221 /* sprite.fs in Resources */,
 				EDDCB699294F619E0086A221 /* arm_showroom_ddn.png in Resources */,
 				EDDCB6DD294F676C0086A221 /* cyborg_diffuse.png in Resources */,
 				ED18D780290478EC000FBE18 /* func_geometric.inl in Resources */,
@@ -1646,6 +1694,7 @@
 				EDDCB6DF294F676C0086A221 /* cyborg.mtl in Resources */,
 				EDDCB6F0294F676C0086A221 /* Vampire_specular.png in Resources */,
 				ED18D79B290478EC000FBE18 /* packing.inl in Resources */,
+				EDDCB70829520C380086A221 /* sprite.vs in Resources */,
 				EDDCB696294F619E0086A221 /* hand_showroom_refl.png in Resources */,
 				ED18D772290478EC000FBE18 /* scalar_ulp.inl in Resources */,
 				ED18D774290478EC000FBE18 /* vector_integer.inl in Resources */,
@@ -1697,12 +1746,14 @@
 				604C25CD2901464B00F35CAD /* AppDelegate.m in Sources */,
 				ED18D8382906C1B8000FBE18 /* Camera.cpp in Sources */,
 				601726E9290147E800C8CC8B /* FileWrapper.m in Sources */,
+				EDDCB6F82951FBD60086A221 /* Game.cpp in Sources */,
 				EDC76C2A2901A1EE005BDC14 /* stb_image_cpp.cpp in Sources */,
 				EDDCB631294F43CA0086A221 /* Model.cpp in Sources */,
 				ED4753432902FA6C0001710C /* OpenGLViewController.m in Sources */,
 				601727042901497E00C8CC8B /* TriangleRenderer.cpp in Sources */,
 				601726E7290147E800C8CC8B /* esShader.c in Sources */,
 				ED76E90729096CCA0006269B /* TimeTool.cpp in Sources */,
+				EDDCB7012952038C0086A221 /* Breakout.cpp in Sources */,
 				EDDCB62E294F39490086A221 /* Mesh.cpp in Sources */,
 				601726E4290147E800C8CC8B /* Shader.cpp in Sources */,
 				604C25DE2901464E00F35CAD /* main.m in Sources */,
@@ -1710,7 +1761,10 @@
 				601726E8290147E800C8CC8B /* esUtil.c in Sources */,
 				ED18D82929051500000FBE18 /* BoxRenderer.cpp in Sources */,
 				ED76E905290961D30006269B /* Illumination.cpp in Sources */,
+				EDDCB6FB2951FDCF0086A221 /* Texture2D.cpp in Sources */,
 				EDC76C2D2901A2A2005BDC14 /* ContainerRenderer.cpp in Sources */,
+				EDDCB6FE2951FE8E0086A221 /* ResourceManager.cpp in Sources */,
+				EDDCB704295207FA0086A221 /* SpriteRenderer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
