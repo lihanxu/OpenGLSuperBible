@@ -9,8 +9,8 @@
 #define SpriteRenderer_hpp
 
 #include <stdio.h>
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform1.hpp>
+#include "glm.hpp"
+#include "matrix_transform1.hpp"
 
 #include "Texture2D.hpp"
 #include "Shader.hpp"

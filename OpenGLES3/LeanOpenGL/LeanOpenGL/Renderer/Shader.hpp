@@ -18,7 +18,7 @@
 #include <EGL/egl.h>
 #include <EGL/eglext.h>
 #endif
-#include "glm/glm.hpp"
+#include "glm.hpp"
 
 class Shader {
     

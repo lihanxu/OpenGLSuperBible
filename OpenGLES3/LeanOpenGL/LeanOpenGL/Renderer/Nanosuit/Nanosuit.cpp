@@ -9,7 +9,7 @@
 #include "Shader.hpp"
 #include "Camera.hpp"
 #include "Model.hpp"
-#include <glm/gtc/type_ptr.hpp>
+#include "type_ptr.hpp"
 
 extern "C" {
 #include "FileWrapper.h"

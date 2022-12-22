@@ -14,7 +14,7 @@
 #include <vector>
 #include <string>
 
-#include "assimp/scene.h"
+#include "scene.h"
 
 using namespace std;
 

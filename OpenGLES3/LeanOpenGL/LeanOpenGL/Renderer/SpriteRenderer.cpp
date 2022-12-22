@@ -28,7 +28,7 @@ void SpriteRenderer::DrawSprite(Texture2D &texture, glm::vec2 position, glm::vec
 
     model = glm::translate(model, glm::vec3(0.5f * size.x, 0.5f * size.y, 0.0f)); // Move origin of rotation to center of quad
     model = glm::rotate(model, glm::radians(rotate + i), glm::vec3(0.0f, 0.0f, 1.0f)); // Then rotate
-    i++;
+//    i++; // 用于演示转动
     model = glm::translate(model, glm::vec3(-0.5f * size.x, -0.5f * size.y, 0.0f)); // Move origin back
 //
     model = glm::scale(model, glm::vec3(size, 1.0f)); // Last scale

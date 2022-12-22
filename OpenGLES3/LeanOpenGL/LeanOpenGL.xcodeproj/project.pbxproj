@@ -21,6 +21,18 @@
 		604C25D82901464E00F35CAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 604C25D72901464E00F35CAD /* Assets.xcassets */; };
 		604C25DB2901464E00F35CAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 604C25D92901464E00F35CAD /* LaunchScreen.storyboard */; };
 		604C25DE2901464E00F35CAD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 604C25DD2901464E00F35CAD /* main.m */; };
+		608FB9932953DC51008E383A /* libzlibstatic-fat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 608FB9912953DC51008E383A /* libzlibstatic-fat.a */; };
+		608FB9942953DC51008E383A /* libIrrXML-fat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 608FB9922953DC51008E383A /* libIrrXML-fat.a */; };
+		608FB9972953E570008E383A /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 608FB9952953E570008E383A /* GameObject.cpp */; };
+		608FB99A2953E62D008E383A /* GameLevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 608FB9982953E62D008E383A /* GameLevel.cpp */; };
+		608FB99D2953E77C008E383A /* block_solid.png in Resources */ = {isa = PBXBuildFile; fileRef = 608FB99B2953E77C008E383A /* block_solid.png */; };
+		608FB99E2953E77C008E383A /* block.png in Resources */ = {isa = PBXBuildFile; fileRef = 608FB99C2953E77C008E383A /* block.png */; };
+		608FB9A02953E945008E383A /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 608FB99F2953E945008E383A /* background.jpg */; };
+		608FB9A62953EBD6008E383A /* one.lvl in Resources */ = {isa = PBXBuildFile; fileRef = 608FB9A22953EBD6008E383A /* one.lvl */; };
+		608FB9A72953EBD6008E383A /* three.lvl in Resources */ = {isa = PBXBuildFile; fileRef = 608FB9A32953EBD6008E383A /* three.lvl */; };
+		608FB9A82953EBD6008E383A /* four.lvl in Resources */ = {isa = PBXBuildFile; fileRef = 608FB9A42953EBD6008E383A /* four.lvl */; };
+		608FB9A92953EBD6008E383A /* two.lvl in Resources */ = {isa = PBXBuildFile; fileRef = 608FB9A52953EBD6008E383A /* two.lvl */; };
+		608FB9AB2953F4D6008E383A /* paddle.png in Resources */ = {isa = PBXBuildFile; fileRef = 608FB9AA2953F4D6008E383A /* paddle.png */; };
 		ED18D760290478EC000FBE18 /* scalar_packing.inl in Resources */ = {isa = PBXBuildFile; fileRef = ED18D64C290478EB000FBE18 /* scalar_packing.inl */; };
 		ED18D761290478EC000FBE18 /* quaternion_common.inl in Resources */ = {isa = PBXBuildFile; fileRef = ED18D652290478EB000FBE18 /* quaternion_common.inl */; };
 		ED18D762290478EC000FBE18 /* matrix_transform.inl in Resources */ = {isa = PBXBuildFile; fileRef = ED18D660290478EB000FBE18 /* matrix_transform.inl */; };
@@ -116,8 +128,6 @@
 		EDC76C272901A08C005BDC14 /* container.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EDC76C262901A08C005BDC14 /* container.jpeg */; };
 		EDC76C2A2901A1EE005BDC14 /* stb_image_cpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EDC76C292901A1EE005BDC14 /* stb_image_cpp.cpp */; };
 		EDC76C2D2901A2A2005BDC14 /* ContainerRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EDC76C2B2901A2A2005BDC14 /* ContainerRenderer.cpp */; };
-		EDDCB629294F370D0086A221 /* libIrrXML-fat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EDDCB61C294F370D0086A221 /* libIrrXML-fat.a */; };
-		EDDCB62A294F370D0086A221 /* libzlibstatic-fat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EDDCB61D294F370D0086A221 /* libzlibstatic-fat.a */; };
 		EDDCB62B294F370D0086A221 /* libassimp-fat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EDDCB61E294F370D0086A221 /* libassimp-fat.a */; };
 		EDDCB62E294F39490086A221 /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EDDCB62C294F39490086A221 /* Mesh.cpp */; };
 		EDDCB631294F43CA0086A221 /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EDDCB62F294F43CA0086A221 /* Model.cpp */; };
@@ -226,6 +236,20 @@
 		604C25DA2901464E00F35CAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		604C25DC2901464E00F35CAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		604C25DD2901464E00F35CAD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		608FB9912953DC51008E383A /* libzlibstatic-fat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libzlibstatic-fat.a"; sourceTree = "<group>"; };
+		608FB9922953DC51008E383A /* libIrrXML-fat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libIrrXML-fat.a"; sourceTree = "<group>"; };
+		608FB9952953E570008E383A /* GameObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameObject.cpp; sourceTree = "<group>"; };
+		608FB9962953E570008E383A /* GameObject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameObject.hpp; sourceTree = "<group>"; };
+		608FB9982953E62D008E383A /* GameLevel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameLevel.cpp; sourceTree = "<group>"; };
+		608FB9992953E62D008E383A /* GameLevel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameLevel.hpp; sourceTree = "<group>"; };
+		608FB99B2953E77C008E383A /* block_solid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = block_solid.png; sourceTree = "<group>"; };
+		608FB99C2953E77C008E383A /* block.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = block.png; sourceTree = "<group>"; };
+		608FB99F2953E945008E383A /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		608FB9A22953EBD6008E383A /* one.lvl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = one.lvl; sourceTree = "<group>"; };
+		608FB9A32953EBD6008E383A /* three.lvl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = three.lvl; sourceTree = "<group>"; };
+		608FB9A42953EBD6008E383A /* four.lvl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = four.lvl; sourceTree = "<group>"; };
+		608FB9A52953EBD6008E383A /* two.lvl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = two.lvl; sourceTree = "<group>"; };
+		608FB9AA2953F4D6008E383A /* paddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paddle.png; sourceTree = "<group>"; };
 		ED18D636290478EB000FBE18 /* vec4.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = vec4.hpp; sourceTree = "<group>"; };
 		ED18D637290478EB000FBE18 /* integer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = integer.hpp; sourceTree = "<group>"; };
 		ED18D638290478EB000FBE18 /* vector_relational.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = vector_relational.hpp; sourceTree = "<group>"; };
@@ -551,8 +575,6 @@
 		EDC76C292901A1EE005BDC14 /* stb_image_cpp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = stb_image_cpp.cpp; sourceTree = "<group>"; };
 		EDC76C2B2901A2A2005BDC14 /* ContainerRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ContainerRenderer.cpp; sourceTree = "<group>"; };
 		EDC76C2C2901A2A2005BDC14 /* ContainerRenderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ContainerRenderer.hpp; sourceTree = "<group>"; };
-		EDDCB61C294F370D0086A221 /* libIrrXML-fat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libIrrXML-fat.a"; sourceTree = "<group>"; };
-		EDDCB61D294F370D0086A221 /* libzlibstatic-fat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libzlibstatic-fat.a"; sourceTree = "<group>"; };
 		EDDCB61E294F370D0086A221 /* libassimp-fat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libassimp-fat.a"; sourceTree = "<group>"; };
 		EDDCB62C294F39490086A221 /* Mesh.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Mesh.cpp; sourceTree = "<group>"; };
 		EDDCB62D294F39490086A221 /* Mesh.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Mesh.hpp; sourceTree = "<group>"; };
@@ -688,9 +710,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				60172707290159E200C8CC8B /* GLKit.framework in Frameworks */,
-				EDDCB629294F370D0086A221 /* libIrrXML-fat.a in Frameworks */,
 				EDDCB62B294F370D0086A221 /* libassimp-fat.a in Frameworks */,
-				EDDCB62A294F370D0086A221 /* libzlibstatic-fat.a in Frameworks */,
+				608FB9932953DC51008E383A /* libzlibstatic-fat.a in Frameworks */,
+				608FB9942953DC51008E383A /* libIrrXML-fat.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -807,6 +829,17 @@
 				604C25DD2901464E00F35CAD /* main.m */,
 			);
 			path = LeanOpenGL;
+			sourceTree = "<group>";
+		};
+		608FB9A12953EBD6008E383A /* breakout */ = {
+			isa = PBXGroup;
+			children = (
+				608FB9A22953EBD6008E383A /* one.lvl */,
+				608FB9A32953EBD6008E383A /* three.lvl */,
+				608FB9A42953EBD6008E383A /* four.lvl */,
+				608FB9A52953EBD6008E383A /* two.lvl */,
+			);
+			path = breakout;
 			sourceTree = "<group>";
 		};
 		ED18D635290478EB000FBE18 /* glm */ = {
@@ -1243,6 +1276,7 @@
 		EDC76C252901A076005BDC14 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				608FB9A12953EBD6008E383A /* breakout */,
 				EDDCB6C5294F676C0086A221 /* backpack */,
 				EDDCB6B7294F676C0086A221 /* cyborg */,
 				EDDCB6C0294F676C0086A221 /* planet */,
@@ -1251,6 +1285,10 @@
 				EDDCB674294F619E0086A221 /* nanosuit */,
 				ED4753552903ABFE0001710C /* awesomeface.png */,
 				EDC76C262901A08C005BDC14 /* container.jpeg */,
+				608FB99B2953E77C008E383A /* block_solid.png */,
+				608FB99C2953E77C008E383A /* block.png */,
+				608FB99F2953E945008E383A /* background.jpg */,
+				608FB9AA2953F4D6008E383A /* paddle.png */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -1275,8 +1313,8 @@
 		EDDCB61B294F370D0086A221 /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				EDDCB61C294F370D0086A221 /* libIrrXML-fat.a */,
-				EDDCB61D294F370D0086A221 /* libzlibstatic-fat.a */,
+				608FB9922953DC51008E383A /* libIrrXML-fat.a */,
+				608FB9912953DC51008E383A /* libzlibstatic-fat.a */,
 				EDDCB61E294F370D0086A221 /* libassimp-fat.a */,
 			);
 			path = lib;
@@ -1494,6 +1532,10 @@
 				EDDCB70529520C380086A221 /* shader */,
 				EDDCB6F62951FBD60086A221 /* Game.cpp */,
 				EDDCB6F72951FBD60086A221 /* Game.hpp */,
+				608FB9952953E570008E383A /* GameObject.cpp */,
+				608FB9962953E570008E383A /* GameObject.hpp */,
+				608FB9982953E62D008E383A /* GameLevel.cpp */,
+				608FB9992953E62D008E383A /* GameLevel.hpp */,
 				EDDCB6FF2952038C0086A221 /* Breakout.cpp */,
 				EDDCB7002952038C0086A221 /* Breakout.hpp */,
 			);
@@ -1580,6 +1622,7 @@
 				ED18D78A290478EC000FBE18 /* type_mat2x2.inl in Resources */,
 				ED18D7A9290478EC000FBE18 /* constants.inl in Resources */,
 				EDDCB6EE294F676C0086A221 /* Vampire_diffuse.png in Resources */,
+				608FB9A62953EBD6008E383A /* one.lvl in Resources */,
 				ED18D792290478EC000FBE18 /* type_mat4x4_simd.inl in Resources */,
 				ED18D76D290478EC000FBE18 /* vector_packing.inl in Resources */,
 				EDDCB672294F5AA10086A221 /* Nanosuit.fs in Resources */,
@@ -1601,6 +1644,7 @@
 				ED18D77D290478EC000FBE18 /* func_vector_relational_simd.inl in Resources */,
 				ED18D776290478EC000FBE18 /* matrix_relational.inl in Resources */,
 				ED475354290399B40001710C /* Container.vs in Resources */,
+				608FB9A02953E945008E383A /* background.jpg in Resources */,
 				EDDCB6AC294F619E0086A221 /* cell_helmet_alpha.png in Resources */,
 				EDDCB69A294F619E0086A221 /* arm_showroom_spec.png in Resources */,
 				EDDCB668294F47300086A221 /* matrix4x4.inl in Resources */,
@@ -1617,10 +1661,12 @@
 				ED18D764290478EC000FBE18 /* quaternion_transform.inl in Resources */,
 				ED475353290399B40001710C /* Container.fs in Resources */,
 				ED18D784290478EC000FBE18 /* type_mat2x4.inl in Resources */,
+				608FB9A72953EBD6008E383A /* three.lvl in Resources */,
 				EDDCB6B1294F619E0086A221 /* leg_showroom_spec.png in Resources */,
 				EDDCB6F1294F676C0086A221 /* dancing_vampire.dae in Resources */,
 				EDDCB6B6294F619E0086A221 /* hand_dif.png in Resources */,
 				EDC76C272901A08C005BDC14 /* container.jpeg in Resources */,
+				608FB9AB2953F4D6008E383A /* paddle.png in Resources */,
 				ED18D78F290478EC000FBE18 /* type_mat2x3.inl in Resources */,
 				ED18D777290478EC000FBE18 /* func_exponential.inl in Resources */,
 				EDDCB6A1294F619E0086A221 /* cell_hand_alpha.png in Resources */,
@@ -1680,6 +1726,7 @@
 				604C25DB2901464E00F35CAD /* LaunchScreen.storyboard in Resources */,
 				ED18D798290478EC000FBE18 /* type_mat3x3.inl in Resources */,
 				EDDCB6A8294F619E0086A221 /* cell_leg_alpha.png in Resources */,
+				608FB9A82953EBD6008E383A /* four.lvl in Resources */,
 				ED18D82D29051517000FBE18 /* Box.vs in Resources */,
 				EDDCB663294F47300086A221 /* quaternion.inl in Resources */,
 				EDDCB665294F47300086A221 /* material.inl in Resources */,
@@ -1695,11 +1742,13 @@
 				EDDCB6F0294F676C0086A221 /* Vampire_specular.png in Resources */,
 				ED18D79B290478EC000FBE18 /* packing.inl in Resources */,
 				EDDCB70829520C380086A221 /* sprite.vs in Resources */,
+				608FB9A92953EBD6008E383A /* two.lvl in Resources */,
 				EDDCB696294F619E0086A221 /* hand_showroom_refl.png in Resources */,
 				ED18D772290478EC000FBE18 /* scalar_ulp.inl in Resources */,
 				ED18D774290478EC000FBE18 /* vector_integer.inl in Resources */,
 				ED18D77B290478EC000FBE18 /* type_quat.inl in Resources */,
 				EDDCB6A2294F619E0086A221 /* nanosuit.mtl in Resources */,
+				608FB99E2953E77C008E383A /* block.png in Resources */,
 				ED18D778290478EC000FBE18 /* func_integer_simd.inl in Resources */,
 				ED18D762290478EC000FBE18 /* matrix_transform.inl in Resources */,
 				ED18D7A4290478EC000FBE18 /* matrix_transform1.inl in Resources */,
@@ -1717,6 +1766,7 @@
 				EDDCB697294F619E0086A221 /* body_showroom_ddn.png in Resources */,
 				ED18D783290478EC000FBE18 /* func_trigonometric.inl in Resources */,
 				ED18D761290478EC000FBE18 /* quaternion_common.inl in Resources */,
+				608FB99D2953E77C008E383A /* block_solid.png in Resources */,
 				EDDCB6A5294F619E0086A221 /* body_showroom_refl.png in Resources */,
 				ED76E90A29096F420006269B /* light_cube.vs in Resources */,
 				ED18D79A290478EC000FBE18 /* quaternion1.inl in Resources */,
@@ -1747,9 +1797,11 @@
 				ED18D8382906C1B8000FBE18 /* Camera.cpp in Sources */,
 				601726E9290147E800C8CC8B /* FileWrapper.m in Sources */,
 				EDDCB6F82951FBD60086A221 /* Game.cpp in Sources */,
+				608FB9972953E570008E383A /* GameObject.cpp in Sources */,
 				EDC76C2A2901A1EE005BDC14 /* stb_image_cpp.cpp in Sources */,
 				EDDCB631294F43CA0086A221 /* Model.cpp in Sources */,
 				ED4753432902FA6C0001710C /* OpenGLViewController.m in Sources */,
+				608FB99A2953E62D008E383A /* GameLevel.cpp in Sources */,
 				601727042901497E00C8CC8B /* TriangleRenderer.cpp in Sources */,
 				601726E7290147E800C8CC8B /* esShader.c in Sources */,
 				ED76E90729096CCA0006269B /* TimeTool.cpp in Sources */,

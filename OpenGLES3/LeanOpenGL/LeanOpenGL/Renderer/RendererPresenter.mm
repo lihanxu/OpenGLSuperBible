@@ -105,11 +105,15 @@
 }
 
 - (void)moveRadian:(float)radian {
-    if ([self.name isEqualToString:@"Box"]) {
-        BoxRenderer *renderer = (BoxRenderer *)_renderer;
-        renderer->move(radian);
-    } else if ([self.name isEqualToString:@"Illumination"]) {
-        Illumination *renderer = (Illumination *)_renderer;
+//    if ([self.name isEqualToString:@"Box"]) {
+//        BoxRenderer *renderer = (BoxRenderer *)_renderer;
+//        renderer->move(radian);
+//    } else if ([self.name isEqualToString:@"Illumination"]) {
+//        Illumination *renderer = (Illumination *)_renderer;
+//        renderer->move(radian);
+//    }
+    if ([self.name isEqualToString:@"Breakout"]) {
+        Breakout *renderer = (Breakout *)_renderer;
         renderer->move(radian);
     }
 }

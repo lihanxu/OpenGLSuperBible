@@ -10,9 +10,9 @@
 #include "stb_image.h"
 #include <iostream>
 
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform1.hpp>
-#include <glm/gtc/type_ptr.hpp>
+#include "glm.hpp"
+#include "matrix_transform1.hpp"
+#include "type_ptr.hpp"
 
 extern "C" {
 #include "FileWrapper.h"

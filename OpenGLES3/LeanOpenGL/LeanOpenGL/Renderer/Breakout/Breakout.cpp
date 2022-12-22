@@ -73,15 +73,31 @@ public:
         glViewport(0, 0, _width, _height);
     }
     
+    void move(float radian) {
+        if (radian > 0 && radian < M_PI) {
+            _game.Keys[GLFW_KEY_A] = GL_FALSE;
+            _game.Keys[GLFW_KEY_D] = GL_TRUE;
+        } else if (radian > M_PI && radian < M_PI * 2) {
+            _game.Keys[GLFW_KEY_A] = GL_TRUE;
+            _game.Keys[GLFW_KEY_D] = GL_FALSE;
+        } else if (radian == -10086) {
+            _game.Keys[GLFW_KEY_A] = GL_FALSE;
+            _game.Keys[GLFW_KEY_D] = GL_FALSE;
+        }
+    }
+    
     void draw() {
         // Calculate delta time
         long currentFrame = static_cast<long>(getCurrentTime());
+        if (_lastFrame == 0) {
+            _lastFrame = currentFrame;
+        }
         _deltaTime = currentFrame - _lastFrame;
         _lastFrame = currentFrame;
 
         //deltaTime = 0.001f;
         // Manage user input
-        _game.ProcessInput(_deltaTime);
+        _game.ProcessInput(_deltaTime / 1000.0);
 
         // Update Game state
         _game.Update(_deltaTime);
@@ -121,3 +137,8 @@ void Breakout::updateWindowSize(int width, int height) {
 void Breakout::draw() {
     m_pImpl->draw();
 }
+
+void Breakout::move(float radian) {
+    m_pImpl->move(radian);
+}
+

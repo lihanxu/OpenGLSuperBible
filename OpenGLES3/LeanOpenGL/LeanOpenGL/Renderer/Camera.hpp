@@ -8,8 +8,8 @@
 #ifndef Camera_hpp
 #define Camera_hpp
 
-#include "glm/glm.hpp"
-#include "glm/gtc/matrix_transform1.hpp"
+#include "glm.hpp"
+#include "matrix_transform1.hpp"
 
 //默认相机值
 const float CAMERA_YAW         = -90.0f;

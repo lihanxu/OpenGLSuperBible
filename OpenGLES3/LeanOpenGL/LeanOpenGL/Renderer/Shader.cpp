@@ -9,7 +9,7 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
-#include "glm/gtc/type_ptr.hpp"
+#include "type_ptr.hpp"
 
 using namespace std;
 

@@ -120,27 +120,27 @@ typedef NS_ENUM(NSInteger, GRAction) {
         }
         case UIGestureRecognizerStateChanged:
         {
-//            if (self.grAction == GRActionMoving) {
-//                float radian = 0.0;
-//                CGPoint locPoint = [recognizer locationInView:self.grView];
-//                float offsetX = locPoint.x - self.startPoint.x;
-//                float offsetY = self.startPoint.y - locPoint.y;
-//                if (offsetX > 0.0) {
-//                    if (offsetY > 0.0) {
-//                        radian = atan2f(offsetX, offsetY);
-//                    } else {
-//                        radian = M_PI - atan2f(offsetX, -offsetY);
-//                    }
-//                } else {
-//                    if (offsetY > 0.0) {
-//                        radian = 2 * M_PI - atan2f(-offsetX, offsetY);
-//                    } else {
-//                        radian = M_PI + atan2f(-offsetX, -offsetY);
-//                    }
-//                }
-//                NSLog(@"radian: %f", radian);
-//                [self.presenter moveRadian:radian];
-//            }
+            if (self.grAction == GRActionMoving) {
+                float radian = 0.0;
+                CGPoint locPoint = [recognizer locationInView:self.grView];
+                float offsetX = locPoint.x - self.startPoint.x;
+                float offsetY = self.startPoint.y - locPoint.y;
+                if (offsetX > 0.0) {
+                    if (offsetY > 0.0) {
+                        radian = atan2f(offsetX, offsetY);
+                    } else {
+                        radian = M_PI - atan2f(offsetX, -offsetY);
+                    }
+                } else {
+                    if (offsetY > 0.0) {
+                        radian = 2 * M_PI - atan2f(-offsetX, offsetY);
+                    } else {
+                        radian = M_PI + atan2f(-offsetX, -offsetY);
+                    }
+                }
+                NSLog(@"radian: %f", radian);
+                [self.presenter moveRadian:radian];
+            }
                 
             CGPoint transLation = [recognizer translationInView:self.grView];
             NSLog(@"translation: %@", NSStringFromCGPoint(transLation));
@@ -153,6 +153,7 @@ typedef NS_ENUM(NSInteger, GRAction) {
         }
         default:
             self.grAction = GRActionNone;
+            [self.presenter moveRadian:-10086];
             break;
     }
     [recognizer setTranslation:CGPointZero inView:self.view];

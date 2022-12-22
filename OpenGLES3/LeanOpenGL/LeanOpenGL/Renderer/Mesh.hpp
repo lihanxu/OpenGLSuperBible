@@ -9,11 +9,11 @@
 #define Mesh_hpp
 
 #include <stdio.h>
-#include "glm/glm.hpp"
+#include "glm.hpp"
 #include <string>
 #include <vector>
 #include "Shader.hpp"
-#include "assimp/scene.h"
+#include "scene.h"
 
 /// 顶点
 struct Vertex {

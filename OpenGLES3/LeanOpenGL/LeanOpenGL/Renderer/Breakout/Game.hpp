@@ -18,6 +18,11 @@
 #include <EGL/eglext.h>
 #endif
 
+#include "GameLevel.hpp"
+
+#define GLFW_KEY_A      (100)
+#define GLFW_KEY_D      (103)
+
 // 代表了游戏的当前状态
 enum GameState {
     GAME_ACTIVE,
@@ -32,6 +37,8 @@ public:
     GameState  State;
     GLboolean  Keys[1024];
     GLuint     Width, Height;
+    std::vector<GameLevel> Levels;
+    GLuint                 Level;
     // 构造函数/析构函数
     Game(GLuint width, GLuint height);
     ~Game();
